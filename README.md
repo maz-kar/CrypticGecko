@@ -4,7 +4,7 @@
 An iOS app to track coin prices.
 
 ## APIs
-https://www.coingecko.com/
+https://www.coingecko.com/en/api
 
 ## Frameworks
 SwiftUI - Combine - CoreData - XCTest
