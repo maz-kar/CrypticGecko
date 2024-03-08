@@ -8,24 +8,20 @@
 import SwiftUI
 
 struct HeaderButtonView: View {
+    
     var buttonImage: String
+    
     var body: some View {
-        Button(action: {
-            print("Pressed")
-        }, label: {
-            ZStack {
-                Circle()
-                    .frame(width: 50, height: 50)
-                    .foregroundStyle(Color.theme.backgroundColor)
-                    .shadow(color: Color.theme.accentColor, radius: 2)
-                    .overlay {
-                        Image(systemName: buttonImage)
-                            .bold()
-                            .foregroundStyle(Color.theme.accentColor)
-                        
-                    }
+        Circle()
+            .frame(width: 50, height: 50)
+            .foregroundStyle(Color.theme.backgroundColor)
+            .shadow(color: Color.theme.accentColor, radius: 2)
+            .overlay {
+                Image(systemName: buttonImage)
+                    .bold()
+                    .foregroundStyle(Color.theme.accentColor)
+                
             }
-        })
     }
 }
 

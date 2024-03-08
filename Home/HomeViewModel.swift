@@ -8,6 +8,3 @@
 import Foundation
 import SwiftUI
 
-class HomeViewModel: ObservableObject {
-    @Published var headerText: String = "Live Prices"
-}

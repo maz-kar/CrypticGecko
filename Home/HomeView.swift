@@ -7,13 +7,22 @@
 
 import SwiftUI
 
+class HomeViewModel: ObservableObject { //TODO: Move it back to its folder
+    
+    @Published var headerText: String = "Live Prices"
+    
+}
+
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
+    
+    //TODO: Add a property isPressed
     
     var body: some View {
         ZStack {
             Color.theme.backgroundColor
                 .ignoresSafeArea()
+            
             VStack {
                 HStack(spacing: 80) {
                    HeaderButtonView(buttonImage: "info")
@@ -23,6 +32,10 @@ struct HomeView: View {
                         .foregroundStyle(Color.theme.accentColor)
                     
                     HeaderButtonView(buttonImage: "chevron.right")
+                        .onTapGesture {
+                            //TODO: toggle the isPressed
+                            print("Pressed!")
+                        }
                 }
                 Spacer()
             }
