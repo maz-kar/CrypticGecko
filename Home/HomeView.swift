@@ -9,14 +9,14 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject { //TODO: Move it back to its folder
     
-    @Published var headerText: String = "Live Prices"
+    @Published var headerText: String = ""
     
 }
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
     
-    //TODO: Add a property isPressed
+    @State var chevronRightPressed: Bool = false
     
     var body: some View {
         ZStack {
@@ -25,16 +25,20 @@ struct HomeView: View {
             
             VStack {
                 HStack(spacing: 80) {
-                   HeaderButtonView(buttonImage: "info")
+                    Button(action: {
+                        
+                    }, label: {
+                        HeaderButtonView(buttonImage: chevronRightPressed ? "plus" : "info")
+                    })
                     
-                    Text(viewModel.headerText)
+                    Text(chevronRightPressed ? "Portfolio" : "Live Prices")
                         .bold()
                         .foregroundStyle(Color.theme.accentColor)
+                        .frame(width: 90)
                     
-                    HeaderButtonView(buttonImage: "chevron.right")
+                    HeaderButtonView(buttonImage: chevronRightPressed ? "chevron.left" : "chevron.right")
                         .onTapGesture {
-                            //TODO: toggle the isPressed
-                            print("Pressed!")
+                            chevronRightPressed.toggle()
                         }
                 }
                 Spacer()
@@ -47,3 +51,12 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
+
+/*
+TODO:
+when pressing chevron.right:
+try to use manuel set up instead of chevron.left
+add an animation when chevronRight is pressed for the info button when it becomes plus
+ 
+DONE:
+ */
