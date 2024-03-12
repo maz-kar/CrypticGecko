@@ -54,9 +54,12 @@ struct HomeView: View {
 
 /*
 TODO:
-when pressing chevron.right:
-try to use manuel set up instead of chevron.left
-add an animation when chevronRight is pressed for the info button when it becomes plus
+Create the navigationView and hide its bar
+add onTapGesture withAnimation
+add rotationEffect for the chevron.right instead of chevron.left
+use animation none on plus info
+add animation for the circleButton
+Refactor the home view in the end
  
 DONE:
  */
