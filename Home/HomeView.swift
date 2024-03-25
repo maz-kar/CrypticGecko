@@ -90,6 +90,11 @@ struct HomeView: View {
                         Spacer()
                     }
                 }
+                
+                VStack {
+                    
+                }
+                
                 Spacer()
             }
         }
