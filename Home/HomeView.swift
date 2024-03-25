@@ -99,15 +99,3 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
-
-/*
- TODO:
- Create the navigationView and hide its bar
- add onTapGesture withAnimation
- add rotationEffect for the chevron.right instead of chevron.left
- use animation none on plus info
- add animation for the circleButton
- Refactor the home view in the end
- 
- DONE:
- */
