@@ -15,6 +15,8 @@
 		6B2ED5EB2B729F0D00529A1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2ED5EA2B729F0D00529A1F /* ContentView.swift */; };
 		6B2ED5ED2B729F0E00529A1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B2ED5EC2B729F0E00529A1F /* Assets.xcassets */; };
 		6B2ED5F02B729F0E00529A1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B2ED5EF2B729F0E00529A1F /* Preview Assets.xcassets */; };
+		6B6A91CC2BC44848000EFD0F /* CoinsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A91CB2BC44848000EFD0F /* CoinsRowView.swift */; };
+		6B6A91CE2BC44D8B000EFD0F /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A91CD2BC44D8B000EFD0F /* PreviewProvider.swift */; };
 		6BF46CA92B827BFE0097DF37 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF46CA82B827BFE0097DF37 /* Color.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,8 @@
 		6B2ED5EA2B729F0D00529A1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6B2ED5EC2B729F0E00529A1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B2ED5EF2B729F0E00529A1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6B6A91CB2BC44848000EFD0F /* CoinsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsRowView.swift; sourceTree = "<group>"; };
+		6B6A91CD2BC44D8B000EFD0F /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		6BF46CA82B827BFE0097DF37 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +51,7 @@
 			children = (
 				6B14C5BF2B99C2C800BBED30 /* HomeView.swift */,
 				6B14C5C12B99C2D600BBED30 /* HomeViewModel.swift */,
+				6B6A91CB2BC44848000EFD0F /* CoinsRowView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				6BF46CA82B827BFE0097DF37 /* Color.swift */,
+				6B6A91CD2BC44D8B000EFD0F /* PreviewProvider.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -188,8 +194,10 @@
 				6B2ED5EB2B729F0D00529A1F /* ContentView.swift in Sources */,
 				6B14C5C02B99C2C800BBED30 /* HomeView.swift in Sources */,
 				6B2ED5E92B729F0D00529A1F /* CrypticGeckoApp.swift in Sources */,
+				6B6A91CC2BC44848000EFD0F /* CoinsRowView.swift in Sources */,
 				6B14C5C52B99CD1100BBED30 /* HeaderButtonView.swift in Sources */,
 				6B14C5C22B99C2D700BBED30 /* HomeViewModel.swift in Sources */,
+				6B6A91CE2BC44D8B000EFD0F /* PreviewProvider.swift in Sources */,
 				6BF46CA92B827BFE0097DF37 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
