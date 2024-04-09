@@ -25,8 +25,8 @@ struct CoinsRowView: View {
             Spacer() //TODO: CHECK
             
             VStack(alignment: .trailing) { //TODO: CHECK
-                Text(coin.currentPrice.asCurrencyWith6Decimals())
-                Text("\(coin.priceChangePercentage24H ?? 0)%")
+                Text(coin.currentPrice.asCurrencyWith6Decimals()) //TODO: How to move $ to left and without space?
+                Text(coin.priceChangePercentage24H?.asPercentString() ?? "")
                     .foregroundStyle((coin.priceChangePercentage24H ?? 0 >= 0) ? Color.theme.greenColor : Color.theme.redColor)
             }
         }

@@ -15,16 +15,15 @@ extension Double {
     ///Convert 12.3456 to $12.3456
     ///Convert 0.123456 to $0.123456
     ///```
-    
     private var currencyFormatter6: NumberFormatter {
         let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .currency
         formatter.minimumFractionDigits = 2
         formatter.maximumFractionDigits = 6
-        formatter.usesGroupingSeparator = true
         formatter.locale = .current
-        formatter.numberStyle = .currency
-        formatter.currencySymbol = "$"
         formatter.currencyCode = "usd"
+        formatter.currencySymbol = "$"
         
         return formatter
     }
@@ -35,9 +34,24 @@ extension Double {
     ///Convert 12.3456 to "$12.3456"
     ///Convert 0.123456 to "$0.123456"
     ///```
-    
     func asCurrencyWith6Decimals() -> String {
         let number = NSNumber(value: self)
         return currencyFormatter6.string(from: number) ?? "$0.00"
+    }
+    
+    ///Converts a Double into a String representation
+    ///```
+    ///Convert 12.3456 to "12.34"
+    ///```
+    func asNumberString() -> String {
+        return String(format: "%.2f", self)
+    }
+    
+    ///Converts a Double into a String representation with percent symbol
+    ///```
+    ///Convert 12.3456 to "12.34%"
+    ///```
+    func asPercentString() -> String {
+        return asNumberString() + "%"
     }
 }
