@@ -25,7 +25,7 @@ struct CoinsRowView: View {
             Spacer() //TODO: CHECK
             
             VStack(alignment: .trailing) { //TODO: CHECK
-                Text("\(coin.currentPrice)")
+                Text(coin.currentPrice.asCurrencyWith6Decimals())
                 Text("\(coin.priceChangePercentage24H ?? 0)%")
                     .foregroundStyle((coin.priceChangePercentage24H ?? 0 >= 0) ? Color.theme.greenColor : Color.theme.redColor)
             }
