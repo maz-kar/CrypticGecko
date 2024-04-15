@@ -8,28 +8,29 @@
 import SwiftUI
 
 struct CircleButtonView: View {
-    var buttonImage: String
+    var iconName: String
     
     var body: some View {
-        Circle()
+        Image(systemName: iconName)
+            .font(.headline)
+            .foregroundStyle(Color.theme.accentColor)
             .frame(width: 50, height: 50)
-            .foregroundStyle(Color.theme.backgroundColor)
-            .shadow(color: Color.theme.accentColor.opacity(0.25),
-                    radius: 2, x: 0, y: 0)
-            .overlay {
-                Image(systemName: buttonImage)
-                    .bold()
-                    .foregroundStyle(Color.theme.accentColor)
-            }
+            .background(
+                Circle()
+                    .foregroundStyle(Color.theme.backgroundColor)
+            )
+            .shadow(
+                color: Color.theme.accentColor.opacity(0.25),
+                radius: 10, x: 0, y: 0)
             .padding()
     }
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
     Group {
-        CircleButtonView(buttonImage: "info")
+        CircleButtonView(iconName: "info")
         
-        CircleButtonView(buttonImage: "chevron.right")
+        CircleButtonView(iconName: "chevron.right")
             .colorScheme(.dark)
     }
 }
