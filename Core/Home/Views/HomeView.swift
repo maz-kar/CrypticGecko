@@ -18,7 +18,8 @@ struct HomeView: View {
             
             VStack {
                 HStack() {
-                    CircleButtonView(iconName: (showPortfolio ? "plus" : "info"))
+                    CircleButtonView(iconName: showPortfolio ? "plus" : "info")
+                        .animation(.none, value: showPortfolio)
                     Spacer()
                     
                     Text(showPortfolio ? "Portfolio" : "Live Prices")
@@ -27,11 +28,14 @@ struct HomeView: View {
                         .foregroundStyle(Color.theme.accentColor)
                     Spacer()
                     
-                    CircleButtonView(iconName: (showPortfolio ? "chevron.left" : "chevron.right"))
+                    CircleButtonView(iconName: "chevron.right")
+                        .rotationEffect(.degrees(showPortfolio ? 180 : 0), anchor: .center)
                         .onTapGesture {
-                            showPortfolio.toggle()
+                            withAnimation(.spring()) {
+                                showPortfolio.toggle()
+                            }
                         }
-                        
+                    
                 }
                 .padding(.horizontal)
                 Spacer(minLength: 0)
