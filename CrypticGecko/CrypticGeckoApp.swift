@@ -13,6 +13,7 @@ struct CrypticGeckoApp: App {
         WindowGroup {
             NavigationStack {
                 HomeView()
+                    .toolbar(.hidden)
             }
         }
     }
