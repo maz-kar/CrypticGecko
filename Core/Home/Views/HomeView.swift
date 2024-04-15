@@ -27,7 +27,7 @@ struct HomeView: View {
                     Button(action: {
                         
                     }, label: {
-                        HeaderButtonView(buttonImage: chevronRightPressed ? "plus" : "info")
+                        CircleButtonView(buttonImage: chevronRightPressed ? "plus" : "info")
                     })
                     
                     Text(chevronRightPressed ? "Portfolio" : "Live Prices")
@@ -35,7 +35,7 @@ struct HomeView: View {
                         .foregroundStyle(Color.theme.accentColor)
                         .frame(width: 90)
                     
-                    HeaderButtonView(buttonImage: chevronRightPressed ? "chevron.left" : "chevron.right")
+                    CircleButtonView(buttonImage: chevronRightPressed ? "chevron.left" : "chevron.right")
                         .onTapGesture {
                             chevronRightPressed.toggle()
                         }

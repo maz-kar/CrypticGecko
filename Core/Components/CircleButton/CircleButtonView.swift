@@ -7,30 +7,29 @@
 
 import SwiftUI
 
-struct HeaderButtonView: View {
-    
+struct CircleButtonView: View {
     var buttonImage: String
     
     var body: some View {
         Circle()
             .frame(width: 50, height: 50)
             .foregroundStyle(Color.theme.backgroundColor)
-            .shadow(color: Color.theme.accentColor, radius: 2)
+            .shadow(color: Color.theme.accentColor.opacity(0.25),
+                    radius: 2, x: 0, y: 0)
             .overlay {
                 Image(systemName: buttonImage)
                     .bold()
                     .foregroundStyle(Color.theme.accentColor)
-                
             }
+            .padding()
     }
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
     Group {
-        HeaderButtonView(buttonImage: "info")
+        CircleButtonView(buttonImage: "info")
         
-        HeaderButtonView(buttonImage: "chevron.right")
+        CircleButtonView(buttonImage: "chevron.right")
             .colorScheme(.dark)
     }
-    .padding()
 }
