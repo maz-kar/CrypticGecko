@@ -23,6 +23,7 @@ struct HomeView: View {
                     Spacer()
                     
                     Text(showPortfolio ? "Portfolio" : "Live Prices")
+                        .animation(.none, value: showPortfolio)
                         .font(.headline)
                         .fontWeight(.heavy)
                         .foregroundStyle(Color.theme.accentColor)
