@@ -49,6 +49,9 @@ import SwiftUI
  */
 
 struct CoinsModel: Identifiable, Codable {
+    //id,symbol,name,image,currentPrice SHOULD have values
+    //To be safe, preferably use Double rather than Int
+    //Because we have id, we dont need any extra effort for conforming to Identifiable
     let id, symbol, name: String
     let image: String
     let currentPrice: Double
@@ -66,6 +69,15 @@ struct CoinsModel: Identifiable, Codable {
     let sparklineIn7D: SparklineIn7D?
     let priceChangePercentage24HInCurrency: Double?
     let currentHoldings: Double?
+    //was added to keep track of user holdings. It's optional as we're not downloading it from internet and when initialize for the 1st time, it will be failed and it will be updated afterwards.
+    //REMEMBER: instead of using custom coding keys (having an extra enum and then conforming to String and CodingKey protocol) for camel case issues, we can use decoderData.keyDecodingStrategy = .convertFromSnakeCase such as:
+//    enum CodingKeys: String, CodingKey {
+//        case id, symbol, name
+//        case currentPrice = "current_price"
+//        case currentHolding
+//REMEMBER: if we have values for all the keys the compiler error should go away
+//We will use the keyDecodingStrategy = .convertFromSnakeCase in our viewModel when we get the data from the URLSession
+//    }
     
     func updateHoldings(amount: Double) -> CoinsModel {
         return CoinsModel(id: id, symbol: symbol, name: name, image: image, currentPrice: currentPrice, marketCap: marketCap, marketCapRank: marketCapRank, fullyDilutedValuation: fullyDilutedValuation, totalVolume: totalVolume, high24H: high24H, low24H: low24H, priceChange24H: priceChange24H, priceChangePercentage24H: priceChangePercentage24H, marketCapChange24H: marketCapChange24H, marketCapChangePercentage24H: marketCapChangePercentage24H, circulatingSupply: circulatingSupply, totalSupply: totalSupply, maxSupply: maxSupply, ath: ath, athChangePercentage: athChangePercentage, athDate: athDate, atl: atl, atlChangePercentage: atlChangePercentage, atlDate: atlDate, lastUpdated: lastUpdated, sparklineIn7D: sparklineIn7D, priceChangePercentage24HInCurrency: priceChange24H, currentHoldings: amount)
