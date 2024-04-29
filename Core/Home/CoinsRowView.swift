@@ -22,10 +22,10 @@ struct CoinsRowView: View {
                 .font(.headline)
                 .padding(.leading, 6)
                 .foregroundStyle(Color.theme.accentColor)
-            Spacer() //TODO: CHECK
+            Spacer()
             
-            VStack(alignment: .trailing) { //TODO: CHECK
-                Text(coin.currentPrice.asCurrencyWith6Decimals()) //TODO: How to move $ to left and without space?
+            VStack(alignment: .trailing) {
+                Text(coin.currentPrice.asCurrencyWith6Decimals())
                 Text(coin.priceChangePercentage24H?.asPercentString() ?? "")
                     .foregroundStyle((coin.priceChangePercentage24H ?? 0 >= 0) ? Color.theme.greenColor : Color.theme.redColor)
             }
