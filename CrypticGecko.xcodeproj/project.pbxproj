@@ -57,7 +57,6 @@
 			children = (
 				6B8CF1802BCD6B49002B8229 /* ViewModels */,
 				6B8CF17F2BCD6B3F002B8229 /* Views */,
-				6B6A91CB2BC44848000EFD0F /* CoinsRowView.swift */,
 				6B8CF17C2BCD64AE002B8229 /* Test.swift */,
 			);
 			path = Home;
@@ -130,6 +129,7 @@
 		6B8CF17F2BCD6B3F002B8229 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6B6A91CB2BC44848000EFD0F /* CoinsRowView.swift */,
 				6B14C5BF2B99C2C800BBED30 /* HomeView.swift */,
 			);
 			path = Views;
