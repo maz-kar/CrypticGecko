@@ -32,7 +32,6 @@ struct CoinsRowView: View {
                 }
                 .foregroundStyle(Color.theme.accentColor)
             }
-            Spacer()
             VStack(alignment: .trailing) {
                 Text(coin.currentPrice.asCurrencyWith6Decimals())
                     .bold()
@@ -40,6 +39,7 @@ struct CoinsRowView: View {
                 Text(coin.priceChangePercentage24H?.asPercentString() ?? "")
                     .foregroundStyle((coin.priceChangePercentage24H ?? 0 >= 0) ? Color.theme.greenColor : Color.theme.redColor)
             }
+            .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
         }
     }
 }
