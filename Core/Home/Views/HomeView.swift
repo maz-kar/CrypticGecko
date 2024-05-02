@@ -19,10 +19,15 @@ struct HomeView: View {
             
             VStack {
                 homeHeader
-                List {
-                    CoinsRowView(coin: DeveloperPreview.instance.coin, showHoldingsColumn: false)
+                
+                if !showPortfolio {
+                    allCoinsList
+                        .transition(.move(edge: .leading))
+                } else {
+                    portfolioCoinsList
+                        .transition(.move(edge: .trailing))
                 }
-                .listStyle(.plain)
+
                 Spacer(minLength: 0)
             }
         }
@@ -65,5 +70,25 @@ extension HomeView {
                 }
         }
         .padding(.horizontal)
+    }
+    
+    private var allCoinsList: some View {
+        List {
+            ForEach(vm.allCoinsList) { coin in
+                CoinsRowView(coin: coin, showHoldingsColumn: false)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+            }
+        }
+        .listStyle(.plain)
+    }
+    
+    private var portfolioCoinsList: some View {
+        List {
+            ForEach(vm.portfolioCoinsList) { coin in
+                CoinsRowView(coin: coin, showHoldingsColumn: true)
+                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+            }
+        }
+        .listStyle(.plain)
     }
 }
