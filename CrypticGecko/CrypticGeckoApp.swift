@@ -9,13 +9,16 @@ import SwiftUI
 
 @main
 struct CrypticGeckoApp: App {
-    @StateObject var vm = HomeViewModel()
+    
+    @StateObject private var vm = HomeViewModel()
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack {
                 HomeView()
                     .toolbar(.hidden)
             }
+            .environmentObject(vm)
         }
     }
 }

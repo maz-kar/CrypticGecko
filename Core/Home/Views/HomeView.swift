@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @EnvironmentObject private var vm: HomeViewModel
     @State private var showPortfolio = false
     
     var body: some View {
@@ -28,10 +29,13 @@ struct HomeView: View {
     }
 }
 
-#Preview {
-    NavigationStack {
-        HomeView()
-            .toolbar(.hidden)
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            HomeView()
+                .toolbar(.hidden)
+        }
+        .environmentObject(dev.homeVM)
     }
 }
 
