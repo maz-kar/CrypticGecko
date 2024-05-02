@@ -16,10 +16,6 @@ class HomeViewModel: ObservableObject {
     var cancellable = Set<AnyCancellable>()
     
     init() {
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-//            self.allCoinsList.append(DeveloperPreview.instance.coin)
-//            self.portfolioCoinsList.append(DeveloperPreview.instance.coin)
-//        }
         getData()
     }
     
