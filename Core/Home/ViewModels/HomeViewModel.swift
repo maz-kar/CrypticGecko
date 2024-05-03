@@ -13,7 +13,7 @@ class HomeViewModel: ObservableObject {
     
     @Published var allCoinsList: [CoinsModel] = []
     @Published var portfolioCoinsList: [CoinsModel] = []
-    var cancellable = Set<AnyCancellable>()
+    var cancellables = Set<AnyCancellable>()
     
     init() {
         getData()
@@ -24,14 +24,15 @@ class HomeViewModel: ObservableObject {
         decoderData.keyDecodingStrategy = .convertFromSnakeCase
         guard let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=true&price_change_percentage=24h&locale=en") else { return }
         URLSession.shared.dataTaskPublisher(for: url)
-            .receive(on: DispatchQueue.main)
+            .subscribe(on: DispatchQueue.global(qos: .default))
             .tryMap(handleOutput)
+            .receive(on: DispatchQueue.main)
             .decode(type: [CoinsModel].self, decoder: decoderData)
             .replaceError(with: [])
             .sink { [weak self] returnedCoins in
                 self?.allCoinsList = returnedCoins
             }
-            .store(in: &cancellable)
+            .store(in: &cancellables)
     }
     
     func handleOutput(output: URLSession.DataTaskPublisher.Output) throws -> Data {
