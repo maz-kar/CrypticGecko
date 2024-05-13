@@ -6,22 +6,32 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CoinImageView: View {
     
-    let coin: CoinsModel
+    @StateObject var viewModel: CoinImageViewModel
+    
+    init(coin: CoinsModel) {
+        _viewModel = StateObject(wrappedValue: CoinImageViewModel(coin: coin))
+    }
     
     var body: some View {
-        AsyncImage(url: URL(string: coin.image)) { image in
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .clipShape(Circle())
-        } placeholder: {
-            Circle()
-                .foregroundStyle(Color.theme.accentColor)
+        ZStack {
+            if let image = viewModel.image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 30, height: 30)
+            } else if viewModel.isLoading {
+                ProgressView()
+            } else {
+                Image(systemName: "questionmark")
+                    .foregroundStyle(Color.theme.secondaryTextColor)
+            }
         }
-        .frame(width: 30, height: 30)
+        
+        
     }
 }
 
