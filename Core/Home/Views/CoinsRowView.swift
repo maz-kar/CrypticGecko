@@ -48,16 +48,7 @@ extension CoinsRowView {
                 .foregroundStyle(Color.theme.secondaryTextColor)
                 .frame(minWidth: 30)
             
-            AsyncImage(url: URL(string: coin.image)) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(Circle())
-            } placeholder: {
-                Circle()
-                    .foregroundStyle(Color.theme.accentColor)
-            }
-            .frame(width: 30, height: 30)
+            CoinImageView(coin: coin)
             
             Text("\(coin.symbol.uppercased())")
                 .font(.headline)
