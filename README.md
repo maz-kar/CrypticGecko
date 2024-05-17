@@ -1,13 +1,13 @@
 # CrypticGecko
 
 ## Description
-An iOS app to track coin prices.
+A self-educational iOS app to track coin prices.
 
 ## APIs
 https://www.coingecko.com/en/api
 
 ## Frameworks
-SwiftUI - Combine - CoreData - XCTest
+Swift - SwiftUI - Combine -> ...
 
 ## Architecture
 MVVM
@@ -16,7 +16,9 @@ MVVM
 1. Customised color themes and app icon were added to the Assets of the project.
 2. A reusable button was created to be used for the header of the home screen.
 3. MVVM files of "Home" screen were added to the project.
+//Add the prior steps
 
 ## TODO
-1. Add actions to the header buttons.
+1. Complete the LocalFileManager connections
+2. Refactor the CoinImageService with getImage & saveImage of LocalFileManager
 
