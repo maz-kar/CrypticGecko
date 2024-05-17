@@ -21,4 +21,6 @@ MVVM
 ## TODO
 1. Complete the LocalFileManager connections
 2. Refactor the CoinImageService with getImage & saveImage of LocalFileManager
+3. Add UnitTests for all the VMs so far
+4. Add UITests for all the Views so far
 
