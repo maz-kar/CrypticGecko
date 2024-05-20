@@ -94,7 +94,6 @@
 		6B2ED5DC2B729F0D00529A1F = {
 			isa = PBXGroup;
 			children = (
-				6BA1E6232BF7246D000E22BF /* LocalFileManager.swift */,
 				6BA1E6212BF723E6000E22BF /* README.md */,
 				6B7A90542BE7F31E0074B13C /* Utilities */,
 				6B8CF17E2BCD6B0E002B8229 /* Core */,
@@ -136,6 +135,7 @@
 		6B7A90542BE7F31E0074B13C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				6BA1E6232BF7246D000E22BF /* LocalFileManager.swift */,
 				6B7A90552BE7F3390074B13C /* NetworkingManager.swift */,
 			);
 			path = Utilities;
