@@ -12,6 +12,7 @@ class LocalFileManager {
     static let instance = LocalFileManager()
     private init() { }
     
+    //TODO: implement it
     func getImage() {
         
     }
@@ -29,6 +30,11 @@ class LocalFileManager {
         } catch let error {
             print("Error saving image: \(error)")
         }
+    }
+    
+    //TODO: implement it
+    private func createFolderIfNeeded() {
+        
     }
     
     private func getURLForFolder(folderName: String) -> URL? {
