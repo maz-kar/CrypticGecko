@@ -18,6 +18,8 @@ class LocalFileManager {
     }
     
     func saveImage(image: UIImage, imageName: String, folderName: String) {
+        createFolderIfNeeded(folderName: folderName)
+        
         //image itself cannot be saved in fileManager but the data of that image
         guard 
             let data = image.pngData(),
@@ -33,8 +35,15 @@ class LocalFileManager {
     }
     
     //TODO: implement it
-    private func createFolderIfNeeded() {
-        
+    private func createFolderIfNeeded(folderName: String) {
+        guard let url = getURLForFolder(folderName: folderName) else { return }
+        if !FileManager.default.fileExists(atPath: url.path) {
+            do {
+                try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+            } catch let error {
+                print("Error creating directory. Folder name: \(folderName). \(error)")
+            }
+        }
     }
     
     private func getURLForFolder(folderName: String) -> URL? {
