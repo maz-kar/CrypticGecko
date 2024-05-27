@@ -25,7 +25,6 @@
 		6B96B57B2BF26544001B0128 /* CoinImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B96B57A2BF26544001B0128 /* CoinImageViewModel.swift */; };
 		6B9F9E892BE524BA00BD1DBF /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F9E882BE524BA00BD1DBF /* CoinDataService.swift */; };
 		6BA1E6222BF723E6000E22BF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6BA1E6212BF723E6000E22BF /* README.md */; };
-		6BA1E6242BF7246D000E22BF /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA1E6232BF7246D000E22BF /* LocalFileManager.swift */; };
 		6BF46CA92B827BFE0097DF37 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF46CA82B827BFE0097DF37 /* Color.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +48,6 @@
 		6B96B57A2BF26544001B0128 /* CoinImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageViewModel.swift; sourceTree = "<group>"; };
 		6B9F9E882BE524BA00BD1DBF /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
 		6BA1E6212BF723E6000E22BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		6BA1E6232BF7246D000E22BF /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		6BF46CA82B827BFE0097DF37 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,7 +133,6 @@
 		6B7A90542BE7F31E0074B13C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				6BA1E6232BF7246D000E22BF /* LocalFileManager.swift */,
 				6B7A90552BE7F3390074B13C /* NetworkingManager.swift */,
 			);
 			path = Utilities;
@@ -270,7 +267,6 @@
 				6B2ED5EB2B729F0D00529A1F /* ContentView.swift in Sources */,
 				6B14C5C02B99C2C800BBED30 /* HomeView.swift in Sources */,
 				6B96B5742BF241DC001B0128 /* CoinImageView.swift in Sources */,
-				6BA1E6242BF7246D000E22BF /* LocalFileManager.swift in Sources */,
 				6B2ED5E92B729F0D00529A1F /* CrypticGeckoApp.swift in Sources */,
 				6B6A91CC2BC44848000EFD0F /* CoinsRowView.swift in Sources */,
 				6B9F9E892BE524BA00BD1DBF /* CoinDataService.swift in Sources */,
