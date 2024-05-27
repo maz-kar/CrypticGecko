@@ -14,6 +14,7 @@ class CoinImageService {
     @Published var image: UIImage? = nil
     private var imageSubscription: AnyCancellable?
     private let coin: CoinsModel
+    private let fileManager = LocalFileManager.instance
     
     init(coin: CoinsModel) {
         self.coin = coin
@@ -29,6 +30,7 @@ class CoinImageService {
                 guard let self = self else { return }
                 self.image = returnedImage
                 self.imageSubscription?.cancel()
+                //self.fileManager.saveImage(image: returnedImage, folderName: <#T##String#>)
             })
     }
 }
