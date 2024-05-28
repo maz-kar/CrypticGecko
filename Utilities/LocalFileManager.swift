@@ -27,9 +27,20 @@ class LocalFileManager {
         }
     }
     
+    func getImage(imageName: String, folderName: String) -> UIImage? {
+        guard let url = getURLForImage(imageName: imageName, folderName: folderName) else { return nil }
+        do {
+            let data = try Data(contentsOf: url)
+            return UIImage(data: data)
+        } catch let error {
+            print("Error loading image. \(error)")
+            return nil
+        }
+    }
+    
     private func getURLForFolder(folderName: String) -> URL? {
-        guard let folder = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
-        return folder.appendingPathComponent(folderName)
+        guard let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
+        return url.appendingPathComponent(folderName)
     }
     
     private func getURLForImage(imageName: String, folderName: String) -> URL? {
@@ -38,7 +49,8 @@ class LocalFileManager {
     }
     
     private func createFolderIfNeeded(folderName: String) {
-        if !FileManager.default.fileExists(atPath: folderName) {
+        guard let url = getURLForFolder(folderName: folderName) else { return }
+        if !FileManager.default.fileExists(atPath: url.path) {
             
         }
     }
