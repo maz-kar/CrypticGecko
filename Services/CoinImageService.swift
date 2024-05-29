@@ -20,11 +20,15 @@ class CoinImageService {
     init(coin: CoinsModel) {
         self.coin = coin
         downloadCoinImage() //TODO: implement
+        getCoinImage()
     }
     
+    //If image exists get it, else download it.
     private func getCoinImage() { //TODO: implement
-        fileManager.getImage() //if folder exists do else call downloadCoinImage
-        
+        /*
+         if image exists call fileManager.getImage
+         else call downloadCoinImage
+         */
     }
     
     private func downloadCoinImage() {
@@ -39,7 +43,6 @@ class CoinImageService {
                 self.image = downloadedImage
                 self.imageSubscription?.cancel()
                 self.fileManager.saveImage(image: downloadedImage, folderName: folderName)
-                print("Image Saved.")
             })
     }
 }

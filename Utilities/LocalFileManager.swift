@@ -25,9 +25,10 @@ class LocalFileManager {
         }
     }
     
-    func getImage() { //TODO: retrieve the saved images
-        
-        
+    
+    func getImage(folderName: String, imageName: String) -> UIImage? {
+        guard let url = getURLForImage(folderName: folderName, imageName: imageName) else { return nil }
+        return UIImage(contentsOfFile: url.path)
     }
     
     private func getURLForFolder(folderName: String) -> URL? {
@@ -49,10 +50,7 @@ class LocalFileManager {
             } catch let error {
                 print("Error while creating folder. \(error)")
             }
-            
         }
     }
-    
-    
     
 }
