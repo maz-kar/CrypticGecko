@@ -24,6 +24,7 @@ class CoinImageService {
     
     private func getCoinImage() { //TODO: implement
         fileManager.getImage() //if folder exists do else call downloadCoinImage
+        
     }
     
     private func downloadCoinImage() {
