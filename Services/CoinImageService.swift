@@ -24,7 +24,6 @@ class CoinImageService {
         getCoinImage()
     }
     
-    //If image exists get it, else download it.
     private func getCoinImage() {
         if let savedImage = fileManager.getImage(folderName: folderName, imageName: imageName) {
             image = savedImage

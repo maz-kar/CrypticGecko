@@ -12,7 +12,6 @@ class LocalFileManager {
     static let instance = LocalFileManager()
     private init() { }
     
-    //Saves the image and for that we need only the URL of the destination folder to be saved there
     func saveImage(image: UIImage, folderName: String, imageName: String) {
         createFolderIfNeeded(folderName: folderName)
         
