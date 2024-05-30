@@ -18,6 +18,10 @@ MVVM
 3. MVVM files of "Home" screen were added to the project.
 //Add the prior steps
 
+## Services
+1. CoinDataService: 
+2. CoinImageService: To firstly download and save images in Filemanager and afterwards to retrieve the saved images.
+
 ## TODO
 1. Complete the LocalFileManager connections
 2. Refactor the CoinImageService with getImage & saveImage of LocalFileManager
