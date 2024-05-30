@@ -13,11 +13,13 @@ class LocalFileManager {
     private init() { }
     
     //Saves the image and for that we need only the URL of the destination folder to be saved there
-    func saveImage(image: UIImage, folderName: String) {
+    func saveImage(image: UIImage, folderName: String, imageName: String) {
         createFolderIfNeeded(folderName: folderName)
         
         guard let data = image.pngData(),
-              let url = getURLForFolder(folderName: folderName) else { return }
+              let url = getURLForImage(folderName: folderName, imageName: imageName) else {
+                  return
+              }
         do {
             try data.write(to: url)
         } catch let error {
@@ -27,7 +29,8 @@ class LocalFileManager {
     
     
     func getImage(folderName: String, imageName: String) -> UIImage? {
-        guard let url = getURLForImage(folderName: folderName, imageName: imageName) else { return nil }
+        guard let url = getURLForImage(folderName: folderName, imageName: imageName),
+              FileManager.default.fileExists(atPath: url.path) else { return nil }
         return UIImage(contentsOfFile: url.path)
     }
     
@@ -38,7 +41,6 @@ class LocalFileManager {
     
     private func getURLForImage(folderName: String, imageName: String) -> URL? {
         guard let folderURL = getURLForFolder(folderName: folderName) else { return nil }
-        print("This is our ImageURL: \(folderURL.appendingPathComponent(imageName + ".png"))")
         return folderURL.appendingPathComponent(imageName + ".png")
     }
     
