@@ -17,6 +17,15 @@ struct SearchBarView: View {
             
             TextField("Search by name or symbol", text: $searchText)
                 .foregroundStyle(Color.theme.accentColor)
+            
+            if !searchText.isEmpty {
+                Button(action: {
+                    searchText = ""
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundColor(.gray)
+                }
+            }
         }
         .font(.headline)
         .padding()
