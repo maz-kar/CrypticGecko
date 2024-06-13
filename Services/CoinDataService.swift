@@ -12,6 +12,7 @@ class CoinDataService {
     
     @Published var allCoins: [CoinsModel] = []
     var coinSubscription: AnyCancellable?
+    //var cancellable = Set<AnyCancellable>()
     
     init() {
         getCoins()
@@ -27,6 +28,7 @@ class CoinDataService {
                 self?.allCoins = returnedData
                 self?.coinSubscription?.cancel()
             })
+            //.store(in: &cancellable)
     }
     
 }

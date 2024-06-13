@@ -8,6 +8,13 @@
 import Foundation
 import Combine
 
+/*
+ NetworkingManager consists:
+ 1. This layer must be a folder like Utilities
+ 2. Its funcs must be static func in order to be accessible anywhere in project
+ 3. enum NetworkingError with var description
+ */
+
 class NetworkingManager {
     
     enum NetworkingError: LocalizedError {
@@ -43,4 +50,5 @@ class NetworkingManager {
             response.statusCode >= 200 && response.statusCode < 300 else { throw NetworkingError.badURLResponse(url: url) }
         return output.data
     }
+    
 }

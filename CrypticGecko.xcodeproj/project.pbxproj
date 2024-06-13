@@ -163,8 +163,8 @@
 		6B8CF17F2BCD6B3F002B8229 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6B6A91CB2BC44848000EFD0F /* CoinsRowView.swift */,
 				6B14C5BF2B99C2C800BBED30 /* HomeView.swift */,
+				6B6A91CB2BC44848000EFD0F /* CoinsRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

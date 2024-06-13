@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+//TODO: Make a separated repo for fast use in future.
 class LocalFileManager {
     static let instance = LocalFileManager()
     private init() { }
@@ -25,7 +26,6 @@ class LocalFileManager {
             print("Error while saving image. \(error)")
         }
     }
-    
     
     func getImage(folderName: String, imageName: String) -> UIImage? {
         guard let url = getURLForImage(folderName: folderName, imageName: imageName),
