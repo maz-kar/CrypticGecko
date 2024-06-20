@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-//TODO: Make a separated repo for fast use in future.
 class LocalFileManager {
     static let instance = LocalFileManager()
     private init() { }
