@@ -87,4 +87,4 @@ struct SearchFieldView: View {
     }
 }
 
-//TODO: add a x mark to the right + change the color of the magnifyer when searchText is not empty + if x mark pressed, empty the searchText
+
