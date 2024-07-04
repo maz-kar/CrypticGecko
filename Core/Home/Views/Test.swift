@@ -114,8 +114,10 @@ struct SearchFieldView: View {
     }
 }
 
+//TODO: make a separate component out of it
 struct CoinListView: View {
     @State var percent: Double = -5.7
+    @State var holdingShares: Double = 1.50
     
     var body: some View {
         HStack {
@@ -129,11 +131,21 @@ struct CoinListView: View {
             Spacer()
             
             VStack(alignment: .trailing) {
+                Text("58.500 $")
+                    .fontWeight(.bold)
+                Text(String(format: "%.2f", holdingShares))
+                    .font(.footnote)
+
+            }
+            
+            Spacer()
+            
+            VStack(alignment: .trailing) {
                 Text("57.000 $")
                     .fontWeight(.bold)
                 Text(String(format: "%.2f", percent) + "%")
                     .font(.footnote)
-                    .foregroundStyle(Color.red)
+                    .foregroundStyle(percent < 0.0 ? Color.red : Color.green)
             }
         }
         .padding()
