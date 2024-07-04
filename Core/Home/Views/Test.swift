@@ -17,6 +17,8 @@ struct Test: View {
         
         TestColumnTitles
         
+        CoinListView()
+        
         Spacer()
         
     }
@@ -107,6 +109,32 @@ struct SearchFieldView: View {
             RoundedRectangle(cornerRadius: 25)
                 .foregroundStyle(Color.white)
                 .shadow(color: .gray, radius: 5)
+        }
+        .padding()
+    }
+}
+
+struct CoinListView: View {
+    @State var percent: Double = -5.7
+    
+    var body: some View {
+        HStack {
+            Text("1")
+                .foregroundStyle(Color.gray)
+            Circle()
+                .frame(width: 30, height: 30)
+            Text("BTC")
+                .fontWeight(.bold)
+            
+            Spacer()
+            
+            VStack(alignment: .trailing) {
+                Text("57.000 $")
+                    .fontWeight(.bold)
+                Text(String(format: "%.2f", percent) + "%")
+                    .font(.footnote)
+                    .foregroundStyle(Color.red)
+            }
         }
         .padding()
     }
