@@ -63,23 +63,6 @@ extension TestView {
     
 }
 
-//TODO: make a separate component out of it
-struct CircleBtnView: View {
-    
-    var sfImage: String
-    
-    var body: some View {
-        Circle()
-            .foregroundStyle(Color.white)
-            .frame(width: 50, height: 50)
-            .shadow(color: .gray, radius: 5)
-            .overlay {
-                Image(systemName: sfImage)
-                    .fontWeight(.bold)
-            }
-        
-    }
-}
 
 //TODO: make a separate component out of it
 struct SearchFieldView: View {
