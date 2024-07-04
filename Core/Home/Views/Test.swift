@@ -28,7 +28,7 @@ extension Test {
     private var TestHeader: some View {
         HStack {
             CircleBtnView(sfImage: showPortfol ? "plus" : "info")
-
+            
             Spacer()
             
             Text(showPortfol ? "Portfolio" : "Live Prices")
@@ -61,7 +61,7 @@ struct CircleBtnView: View {
                 Image(systemName: sfImage)
                     .fontWeight(.bold)
             }
-            
+        
     }
 }
 
@@ -72,9 +72,17 @@ struct SearchFieldView: View {
         HStack() {
             Image(systemName: "magnifyingglass")
                 .foregroundStyle(Color.gray)
-
+            
             TextField("Search by name or symbol", text: $searchText)
                 .font(.headline)
+            
+            if !searchText.isEmpty {
+                Image(systemName: "xmark.circle.fill")
+                    .foregroundStyle(Color.gray)
+                    .onTapGesture {
+                        self.searchText = ""
+                    }
+            }
             
         }
         .padding()
