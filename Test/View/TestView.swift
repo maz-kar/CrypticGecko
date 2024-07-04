@@ -13,10 +13,10 @@ struct TestView: View {
     var body: some View {
         
         VStack {
-            TestHeader
+            Header
             SearchFieldView()
-            TestColumnTitles
-            CoinListView()
+            ColumnTitles
+            CoinRowView()
         }
         Spacer()
     }
@@ -27,7 +27,7 @@ struct TestView: View {
 }
 
 extension TestView {
-    private var TestHeader: some View {
+    private var Header: some View {
         HStack {
             CircleBtnView(sfImage: showPortfol ? "plus" : "info")
             
@@ -48,7 +48,7 @@ extension TestView {
         .padding()
     }
     
-    private var TestColumnTitles: some View {
+    private var ColumnTitles: some View {
         HStack {
             Text("Coin")
             Spacer()
@@ -60,53 +60,11 @@ extension TestView {
         .foregroundStyle(Color.gray)
         .padding()
     }
-    
-}
-
-//TODO: make a separate component out of it
-struct CoinListView: View {
-    @State var percent: Double = -5.7
-    @State var holdingShares: Double = 1.50
-    
-    var body: some View {
-        List {
-            ForEach(0..<10) { _ in
-                HStack {
-                    Text("1")
-                        .foregroundStyle(Color.gray)
-                    Circle()
-                        .frame(width: 30, height: 30)
-                    Text("BTC")
-                        .fontWeight(.bold)
-                    
-                    Spacer()
-                    
-                    VStack(alignment: .trailing) {
-                        Text("85.500 $")
-                            .fontWeight(.bold)
-                        Text(String(format: "%.2f", holdingShares))
-                            .font(.footnote)
-                    }
-                    
-                    Spacer()
-                    
-                    VStack(alignment: .trailing) {
-                        Text("57.000 $")
-                            .fontWeight(.bold)
-                        Text(String(format: "%.2f", percent) + "%")
-                            .font(.footnote)
-                            .foregroundStyle(percent < 0.0 ? Color.red : Color.green)
-                    }
-                }
-            }
-        }
-        .listStyle(.plain)
-    }
 }
 
 /*
  //add transition to the showPortfolio on mode
- 
+ //Download and show coins on TestView
  
  */
 
