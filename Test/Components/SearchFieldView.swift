@@ -8,8 +8,32 @@
 import SwiftUI
 
 struct SearchFieldView: View {
+    @State var searchText: String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack() {
+            Image(systemName: "magnifyingglass")
+                .foregroundStyle(searchText.isEmpty ? Color.gray : Color.black)
+            
+            TextField("Search by name or symbol", text: $searchText)
+                .font(.headline)
+            
+            if !searchText.isEmpty {
+                Image(systemName: "xmark.circle.fill")
+                    .foregroundStyle(Color.gray)
+                    .onTapGesture {
+                        self.searchText = ""
+                    }
+            }
+            
+        }
+        .padding()
+        .background {
+            RoundedRectangle(cornerRadius: 25)
+                .foregroundStyle(Color.white)
+                .shadow(color: .gray, radius: 5)
+        }
+        .padding()
     }
 }
 
