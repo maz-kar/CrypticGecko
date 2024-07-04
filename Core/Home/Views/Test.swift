@@ -15,6 +15,8 @@ struct Test: View {
         
         SearchFieldView()
         
+        TestColumnTitles
+        
         Spacer()
         
     }
@@ -46,6 +48,19 @@ extension Test {
         .padding()
     }
     
+    private var TestColumnTitles: some View {
+        HStack {
+            Text("Coin")
+            Spacer()
+            Text(showPortfol ? "Holdings" : "")
+            Spacer()
+            Text("Price")
+        }
+        .font(.footnote)
+        .foregroundStyle(Color.gray)
+        .padding()
+    }
+    
 }
 
 //TODO: make a separate component out of it
@@ -66,6 +81,7 @@ struct CircleBtnView: View {
     }
 }
 
+//TODO: make a separate component out of it
 struct SearchFieldView: View {
     @State var searchText: String = ""
     
