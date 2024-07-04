@@ -45,6 +45,7 @@ extension Test {
         }
         .padding()
     }
+    
 }
 
 //TODO: make a separate component out of it
@@ -71,7 +72,7 @@ struct SearchFieldView: View {
     var body: some View {
         HStack() {
             Image(systemName: "magnifyingglass")
-                .foregroundStyle(Color.gray)
+                .foregroundStyle(searchText.isEmpty ? Color.gray : Color.black)
             
             TextField("Search by name or symbol", text: $searchText)
                 .font(.headline)
