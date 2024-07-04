@@ -66,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B0EAD822C36F29F00AFD88F /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				6B0EAD7C2C35852900AFD88F /* Test.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		6B14C5BE2B99C2B600BBED30 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				6BA1E6212BF723E6000E22BF /* README.md */,
+				6B0EAD822C36F29F00AFD88F /* Test */,
 				6B7A90542BE7F31E0074B13C /* Utilities */,
 				6B8CF17E2BCD6B0E002B8229 /* Core */,
 				6B2326B02BAED2C8003E6CFE /* Models */,
@@ -164,7 +173,6 @@
 			children = (
 				6B14C5BF2B99C2C800BBED30 /* HomeView.swift */,
 				6B6A91CB2BC44848000EFD0F /* CoinsRowView.swift */,
-				6B0EAD7C2C35852900AFD88F /* Test.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

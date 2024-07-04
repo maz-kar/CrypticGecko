@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Test: View {
+struct TestView: View {
     @State private var showPortfol = false
     
     var body: some View {
@@ -23,10 +23,10 @@ struct Test: View {
 }
 
 #Preview {
-    Test()
+    TestView()
 }
 
-extension Test {
+extension TestView {
     private var TestHeader: some View {
         HStack {
             CircleBtnView(sfImage: showPortfol ? "plus" : "info")
@@ -152,5 +152,11 @@ struct CoinListView: View {
         .listStyle(.plain)
     }
 }
+
+/*
+ //add transition to the showPortfolio on mode
+ 
+ 
+ */
 
 

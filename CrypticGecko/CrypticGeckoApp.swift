@@ -15,7 +15,7 @@ struct CrypticGeckoApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                Test()
+                TestView()
                     .toolbar(.hidden)
             }
             .environmentObject(vm)
