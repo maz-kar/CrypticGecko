@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CircleBtnView: View {
+struct CircleBtnViewTest: View {
     var sfImage: String
     
     var body: some View {
@@ -24,9 +24,9 @@ struct CircleBtnView: View {
 
 #Preview {
     Group {
-        CircleBtnView(sfImage: "info")
+        CircleBtnViewTest(sfImage: "info")
             .padding()
-        CircleBtnView(sfImage: "chevron.right")
+        CircleBtnViewTest(sfImage: "chevron.right")
     }
     
 }

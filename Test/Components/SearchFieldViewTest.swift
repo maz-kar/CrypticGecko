@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchFieldView: View {
+struct SearchFieldViewTest: View {
     @State var searchText: String = ""
     
     var body: some View {
@@ -38,5 +38,5 @@ struct SearchFieldView: View {
 }
 
 #Preview {
-    SearchFieldView()
+    SearchFieldViewTest()
 }

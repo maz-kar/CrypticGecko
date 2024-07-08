@@ -15,11 +15,11 @@ struct TestView: View {
         VStack {
             header
             
-            SearchFieldView()
+            SearchFieldViewTest()
             
             columnTitles
             
-            CoinRowView()
+            CoinRowViewTest()
         }
         Spacer()
     }
@@ -32,7 +32,7 @@ struct TestView: View {
 extension TestView {
     private var header: some View {
         HStack {
-            CircleBtnView(sfImage: showPortfol ? "plus" : "info")
+            CircleBtnViewTest(sfImage: showPortfol ? "plus" : "info")
             
             Spacer()
             
@@ -42,7 +42,7 @@ extension TestView {
             
             Spacer()
             
-            CircleBtnView(sfImage: showPortfol ? "chevron.left" : "chevron.right")
+            CircleBtnViewTest(sfImage: showPortfol ? "chevron.left" : "chevron.right")
                 .onTapGesture {
                     showPortfol.toggle()
                     print(showPortfol)
@@ -55,19 +55,19 @@ extension TestView {
         HStack {
             Text("Coin")
             Spacer()
-            Text(showPortfol ? "Holdings" : "")
-            Spacer()
             Text("Price")
         }
         .font(.footnote)
         .foregroundStyle(Color.gray)
         .padding()
     }
+    
 }
 
 /*
  //add transition to the showPortfolio on mode
  //Download and show coins on TestView
+ //Add Holdings to the columnTitle
  
  */
 
