@@ -13,9 +13,12 @@ struct TestView: View {
     var body: some View {
         
         VStack {
-            Header
+            header
+            
             SearchFieldView()
-            ColumnTitles
+            
+            columnTitles
+            
             CoinRowView()
         }
         Spacer()
@@ -27,7 +30,7 @@ struct TestView: View {
 }
 
 extension TestView {
-    private var Header: some View {
+    private var header: some View {
         HStack {
             CircleBtnView(sfImage: showPortfol ? "plus" : "info")
             
@@ -48,7 +51,7 @@ extension TestView {
         .padding()
     }
     
-    private var ColumnTitles: some View {
+    private var columnTitles: some View {
         HStack {
             Text("Coin")
             Spacer()
