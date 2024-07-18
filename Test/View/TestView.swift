@@ -64,11 +64,4 @@ extension TestView {
     
 }
 
-/*
- TODO: Clean the CoinDataServiceTest and transfer the file to their own separated files.
- //add transition to the showPortfolio on mode
- //Download and show coins on TestView
- //Add Holdings to the columnTitle
- */
-
 
