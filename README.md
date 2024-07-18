@@ -28,3 +28,7 @@ MVVM
 3. Add UnitTests for all the VMs
 4. Add UITests for all the Views
 
+On 19.07: 
+create:
+test Service class for getting data
+test Utility class for downloading data + handling responses + handling completions + enum for errors
