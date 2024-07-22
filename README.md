@@ -22,13 +22,18 @@ MVVM
 1. CoinDataService: 
 2. CoinImageService: To firstly download and save images in Filemanager and afterwards to retrieve the saved images.
 
+## Networking Layers:
+1. NetworkingManager in Utilities
+2. DataService in Services
+3. ViewModel
+
+
 ## TODO
 1. Complete the LocalFileManager connections
 2. Refactor the CoinImageService with getImage & saveImage of LocalFileManager
 3. Add UnitTests for all the VMs
 4. Add UITests for all the Views
 
-On 19.07: 
-create:
-test Service class for getting data
-test Utility class for downloading data + handling responses + handling completions + enum for errors
+On 23.07: 
+Download Image + Save Image
+
