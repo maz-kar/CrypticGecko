@@ -12,6 +12,7 @@
 		6B14C5C52B99CD1100BBED30 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14C5C42B99CD1100BBED30 /* CircleButtonView.swift */; };
 		6B1F48842BD6C3D60004345F /* CircleButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1F48832BD6C3D60004345F /* CircleButtonAnimationView.swift */; };
 		6B214C162C09995B008410D8 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B214C152C09995B008410D8 /* SearchBarView.swift */; };
+		6B24EADB2C513A8C00B99A5E /* CoinImageServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24EADA2C513A8C00B99A5E /* CoinImageServiceTest.swift */; };
 		6B28695F2BB1F34100CD4936 /* CoinsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B28695E2BB1F34100CD4936 /* CoinsModel.swift */; };
 		6B2ED5E92B729F0D00529A1F /* CrypticGeckoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2ED5E82B729F0D00529A1F /* CrypticGeckoApp.swift */; };
 		6B2ED5ED2B729F0E00529A1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B2ED5EC2B729F0E00529A1F /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		6B14C5C42B99CD1100BBED30 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		6B1F48832BD6C3D60004345F /* CircleButtonAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimationView.swift; sourceTree = "<group>"; };
 		6B214C152C09995B008410D8 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		6B24EADA2C513A8C00B99A5E /* CoinImageServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageServiceTest.swift; sourceTree = "<group>"; };
 		6B28695E2BB1F34100CD4936 /* CoinsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsModel.swift; sourceTree = "<group>"; };
 		6B2ED5E52B729F0D00529A1F /* CrypticGecko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrypticGecko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B2ED5E82B729F0D00529A1F /* CrypticGeckoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrypticGeckoApp.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				6B9F9E882BE524BA00BD1DBF /* CoinDataService.swift */,
 				6B96B5782BF25EBA001B0128 /* CoinImageService.swift */,
+				6B24EADA2C513A8C00B99A5E /* CoinImageServiceTest.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				6B387A682C04608E00B3D958 /* LocalFileManager.swift in Sources */,
 				6B2ED5E92B729F0D00529A1F /* CrypticGeckoApp.swift in Sources */,
 				6B6A91CC2BC44848000EFD0F /* CoinsRowView.swift in Sources */,
+				6B24EADB2C513A8C00B99A5E /* CoinImageServiceTest.swift in Sources */,
 				6B9F9E892BE524BA00BD1DBF /* CoinDataService.swift in Sources */,
 				6B14C5C52B99CD1100BBED30 /* CircleButtonView.swift in Sources */,
 				6B14C5C22B99C2D700BBED30 /* HomeViewModel.swift in Sources */,

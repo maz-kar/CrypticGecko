@@ -32,6 +32,7 @@ MVVM
 Add UnitTests for all the VMs
 Add UITests for all the Views
 
-On 23.07: 
-Download Image + Save Image
+On 25.07: 
+- Rework on CoinImageServiceTest class.
+- Rewrite the LocalFileManager and make a separated repo in the end out of it.
 
