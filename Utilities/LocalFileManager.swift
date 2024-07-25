@@ -16,9 +16,7 @@ class LocalFileManager {
         createFolderIfNeeded(folderName: folderName)
         
         guard let data = image.pngData(),
-              let url = getURLForImage(folderName: folderName, imageName: imageName) else {
-                  return
-              }
+              let url = getURLForImage(folderName: folderName, imageName: imageName) else { return }
         do {
             try data.write(to: url)
         } catch let error {

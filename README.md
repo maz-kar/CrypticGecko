@@ -32,7 +32,10 @@ MVVM
 Add UnitTests for all the VMs
 Add UITests for all the Views
 
-On 25.07: 
+On 26.07: 
 - Rework on CoinImageServiceTest class.
 - Rewrite the LocalFileManager and make a separated repo in the end out of it.
+- Why     
+static let instance = LocalFileManager()
+private init() { }
 
