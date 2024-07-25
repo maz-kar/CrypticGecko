@@ -25,9 +25,11 @@ class CoinImageService {
     }
     
     private func getCoinImage() {
+        //if image already existed and saved, set the image
         if let savedImage = fileManager.getImage(folderName: folderName, imageName: imageName) {
             image = savedImage
             print("SavedImage used.")
+            //if not go to download it below
         } else {
             downloadCoinImage()
             print("downloadedImage used.")
@@ -45,6 +47,7 @@ class CoinImageService {
                 else { return }
                 self.image = downloadedImage
                 self.imageSubscription?.cancel()
+                //after downloading, save the image
                 self.fileManager.saveImage(image: downloadedImage, folderName: self.folderName, imageName: self.imageName)
             })
     }
