@@ -27,13 +27,18 @@ MVVM
 2. DataService in Services
 3. ViewModel
 
+## Networking Architecture:
+To keep the app and its services reusable, I have used 3 layers:
+1st Service, which is responsible for downloading from internet and after returning the data, appends the data to a published property.
+2nd ViewModel, which is responsible for subscribing to the data appended to the published property of the Service.
+3rd View, which is responsible for referencing to the ViewModel and at the end put the recevied data on screen.
+
 
 ## TODO
 Add UnitTests for all the VMs
 Add UITests for all the Views
 
-On 26.07: 
-- Rework on CoinImageServiceTest class.
+On 20.08: 
 - Rewrite the LocalFileManager and make a separated repo in the end out of it.
 - Why     
 static let instance = LocalFileManager()
