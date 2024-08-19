@@ -6,3 +6,30 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
+
+class CoinImageServiceTest {
+    
+    @Published var image: UIImage? = nil
+    
+    private let coin: CoinsModel
+    private var imageSubscriptions: AnyCancellable?
+    
+    init(coin: CoinsModel) {
+        self.coin = coin
+        downloadImage()
+    }
+    
+    private func downloadImage() {
+        guard let url = URL(string: coin.image) else { return }
+        imageSubscriptions = NetworkingManager.download(url: url)
+            .tryMap({ (data) in
+                return UIImage(data: data)
+            })
+            .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] returnedImage in
+                self?.image = returnedImage
+                self?.imageSubscriptions?.cancel()
+            })
+    }
+}

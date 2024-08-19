@@ -8,11 +8,34 @@
 import SwiftUI
 
 struct CoinImageViewTest: View {
+    @StateObject private var vm: CoinImageViewModelTest
+    
+    init(coin: CoinsModel) {
+        _vm = StateObject(wrappedValue: CoinImageViewModelTest(coin: coin))
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            if let image = vm.image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 30, height: 30)
+            } else if vm.isLoading {
+                ProgressView()
+            } else {
+                Image(systemName: "questionmark")
+            }
+        }
     }
 }
 
-#Preview {
-    CoinImageViewTest()
+struct CoinImageViewTest_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            CoinImageViewTest(coin: dev.coin)
+                .previewLayout(.sizeThatFits)
+                .padding()
+        }
+    }
 }
