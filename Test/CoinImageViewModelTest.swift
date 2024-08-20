@@ -38,3 +38,11 @@ class CoinImageViewModelTest: ObservableObject {
     }
     
 }
+
+/*
+ Networking layers of getting the images can be continued from here after finishing the setups in CoinImageView:
+- Here we need to subscribe to published $image property coming from CoinImageService
+- Sinking the data which means receiving the image --> appending self.image by the received data/image
+- As self.image is a @Published property, it can be sent to CoinImageView later on.
+- The tricks here is to pass the coin: CoinsModel in init
+ */

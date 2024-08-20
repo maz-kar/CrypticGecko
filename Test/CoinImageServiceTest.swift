@@ -33,3 +33,11 @@ class CoinImageServiceTest {
             })
     }
 }
+
+/*
+ Networking layers of getting the images can be continued from here after finishing the setups in CoinImageViewModel:
+- Here is the downloading layer from an interner URL
+- Unlike the coins that had static URL, here we have a dynamic URL for every single coin's image.
+- We have already made a generic download and handleCompletion funcs inside of a utility class called NetworkingManager.
+- The trick here is to pass the coin: CoinsModel in init, to use the coin.image URLString.
+ */
