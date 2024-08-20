@@ -37,10 +37,9 @@ To keep the app and its services reusable, I have used 3 layers:
 1. NetworkingManager: This utility class consists of 3 static methods of download, handleCompletion and handleResponse. Plus an NetworkingError enum.
 Being static func allows us to simply call like NetworkingManager.download every where in our app.
  
-2. LocalFileManager: This utility class is used to save images instead of redownloading them again and again. 
+2. LocalFileManager: This utility class is used to SAVE images instead of redownloading them again and again. 
 Therefore, the 2 main funcs inside of this class will be saveImages to the fileManger and getImages back from the fileManager.
 Moreover, we will have 3 more funcs: getURLForFolder, getURLForImage, createFolderIfNeeded.
-
 
 ## TODO
 Add UnitTests for all the VMs
@@ -48,7 +47,10 @@ Add UITests for all the Views
 Make a separated repo out of LocalFileManager.
 
 On 21.08: 
-- Review the LocalFileManagerTest and CoinImageServiceTest and 
-- Continue with searchBar and filtering
+- Finish SearchBarView:
+add onTapGesture for the xmark
+add extension for closing the simulator keyboard when tapping on the xmark
+Disable autocorrection in virtual keyboard
+- Review the LocalFileManagerTest and CoinImageServiceTest and Continue with searchBar and filtering
 
 
