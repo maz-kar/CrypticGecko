@@ -49,5 +49,6 @@ Make a separated repo out of LocalFileManager.
 
 On 21.08: 
 - Review the LocalFileManagerTest and CoinImageServiceTest and 
+- Continue with searchBar and filtering
 
 
