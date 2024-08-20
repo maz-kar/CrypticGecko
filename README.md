@@ -33,6 +33,12 @@ To keep the app and its services reusable, I have used 3 layers:
 2nd ViewModel, which is responsible for subscribing to the data appended to the published property of the Service.
 3rd View, which is responsible for referencing to the ViewModel and at the end put the recevied data on screen.
 
+## Utility classes:
+1. NetworkingManager: This utility class consists of 3 static methods of download, handleCompletion and handleResponse. Plus an NetworkingError enum.
+Being static func allows us to simply call like NetworkingManager.download every where in our app.
+ 
+2. LocalFileManager: This utility class consists of...
+
 
 ## TODO
 Add UnitTests for all the VMs
