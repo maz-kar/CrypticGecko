@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchBarView: View {
     
-    @State var searchText: String = ""
+    @Binding var searchText: String //Every time we have SearchBarView, we need to bind to a searchText
     
     var body: some View {
         HStack {
@@ -43,11 +43,11 @@ struct SearchBarView: View {
 struct SearchBarView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SearchBarView()
+            SearchBarView(searchText: .constant(""))
                 .previewLayout(.sizeThatFits)
                 .preferredColorScheme(.dark)
             
-            SearchBarView()
+            SearchBarView(searchText: .constant(""))
                 .previewLayout(.sizeThatFits)
                 .preferredColorScheme(.light)
         }
