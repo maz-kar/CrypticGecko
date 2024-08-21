@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SearchBarView: View {
-    @State var searchText = ""
-
+    
+    @State var searchText: String = ""
+    
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
@@ -17,31 +18,40 @@ struct SearchBarView: View {
             
             TextField("Search by name or symbol", text: $searchText)
                 .foregroundStyle(Color.theme.accentColor)
-            
-            if !searchText.isEmpty {
-                Button(action: {
-                    searchText = ""
-                }) {
+                .overlay(alignment: .trailing) {
                     Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.gray)
+                        .foregroundStyle(Color.theme.accentColor)
+                        .opacity(searchText.isEmpty ? 0.0 : 1.0)
+                        .onTapGesture {
+                            searchText = ""
+                        }
                 }
-            }
+                .disableAutocorrection(true)
         }
         .font(.headline)
         .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 25.0)
-                .fill(Color.theme.backgroundColor)
-                .shadow(
-                    color: Color.theme.accentColor.opacity(0.15),
-                    radius: 10, x: 0, y: 0)
-        )
+        .background {
+            RoundedRectangle(cornerRadius: 25)
+                .foregroundColor(Color.theme.backgroundColor)
+                .shadow(color: Color.theme.accentColor.opacity(0.3),
+                        radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 0, y: 0)
+        }
         .padding()
     }
 }
 
-#Preview {
-    SearchBarView()
+struct SearchBarView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            SearchBarView()
+                .previewLayout(.sizeThatFits)
+                .preferredColorScheme(.dark)
+            
+            SearchBarView()
+                .previewLayout(.sizeThatFits)
+                .preferredColorScheme(.light)
+        }
+    }
 }
 
 
