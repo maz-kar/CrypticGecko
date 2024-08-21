@@ -53,8 +53,7 @@ Add UnitTests for all the VMs
 Add UITests for all the Views
 Make a separated repo out of LocalFileManager.
 
-On 21.08: 
-- Finish SearchBarView:
-add extension for closing the simulator keyboard when tapping on the xmark
+On 22.08: 
+- Finish StatisticModel
 
 
