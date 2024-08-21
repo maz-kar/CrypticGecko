@@ -41,6 +41,13 @@ Being static func allows us to simply call like NetworkingManager.download every
 Therefore, the 2 main funcs inside of this class will be saveImages to the fileManger and getImages back from the fileManager.
 Moreover, we will have 3 more funcs: getURLForFolder, getURLForImage, createFolderIfNeeded.
 
+## Search & Filter by Combine:
+The searchText published var in HomeViewModel will be binded to SearchBarView. Therefore, whenever we type something in the searchBar, this published var will be updated.
+Hence, if we subscribe to this publisher, we can use its value.
+
+We wanted to combine $searchText and $allCoins publishers and map them to a new array CoinsModel and also filter them.
+ 
+
 ## TODO
 Add UnitTests for all the VMs
 Add UITests for all the Views
