@@ -48,9 +48,6 @@ Make a separated repo out of LocalFileManager.
 
 On 21.08: 
 - Finish SearchBarView:
-add onTapGesture for the xmark
 add extension for closing the simulator keyboard when tapping on the xmark
-Disable autocorrection in virtual keyboard
-- Review the LocalFileManagerTest and CoinImageServiceTest and Continue with searchBar and filtering
 
 
