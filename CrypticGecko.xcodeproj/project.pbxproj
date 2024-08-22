@@ -35,6 +35,7 @@
 		6BF3F9A82C76726200C526F0 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF3F9A72C76726200C526F0 /* StatisticView.swift */; };
 		6BF46CA92B827BFE0097DF37 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF46CA82B827BFE0097DF37 /* Color.swift */; };
 		6BF506392C778FAE001DF504 /* HomeStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF506382C778FAE001DF504 /* HomeStatsView.swift */; };
+		6BF5063B2C77C17A001DF504 /* MarketDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF5063A2C77C17A001DF504 /* MarketDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		6BF3F9A72C76726200C526F0 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		6BF46CA82B827BFE0097DF37 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6BF506382C778FAE001DF504 /* HomeStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsView.swift; sourceTree = "<group>"; };
+		6BF5063A2C77C17A001DF504 /* MarketDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				6B28695E2BB1F34100CD4936 /* CoinsModel.swift */,
 				6BF3F9A52C7669BA00C526F0 /* StatisticModel.swift */,
+				6BF5063A2C77C17A001DF504 /* MarketDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				6B7B998B2C7397D2005AC1E9 /* CoinImageViewTest.swift in Sources */,
 				6BF3F9A22C760D2500C526F0 /* UIApplication.swift in Sources */,
 				6B6A91D02BC45A72000EFD0F /* Double.swift in Sources */,
+				6BF5063B2C77C17A001DF504 /* MarketDataModel.swift in Sources */,
 				6B96B57B2BF26544001B0128 /* CoinImageViewModel.swift in Sources */,
 				6B7B998D2C74B9E0005AC1E9 /* LocalFileManagerTest.swift in Sources */,
 				6BF46CA92B827BFE0097DF37 /* Color.swift in Sources */,
