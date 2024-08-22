@@ -9,13 +9,6 @@ https://www.coingecko.com/en/api
 ## Frameworks
 Swift - SwiftUI - Combine -> ...
 
-## Architecture of Models:
-1. Create a model file in model folder which consists of the desired properties.
-2. Make a view in component folder which consists of a reusable view with all the necessary data in that view.
-3. Make another view in its appropriate folder like Home. This one should consists of the final look of our desire view.
-4. Transfer all NOT view related data to a ViewModel.
-5. Finally call the View of 3rd step inside the final View of the app.
-
 ## Instructions
 1. Customised color themes and app icon were added to the Assets of the project.
 2. A reusable button was created to be used for the header of the home screen.
@@ -55,8 +48,14 @@ We wanted to combine $searchText and $allCoins publishers and map them to a new 
 So far 2 models have been used:
 1. CoinsModel: which consists of ALL data related to the coins, coming from the URL.
 2. StatisticModel: which consists of selected data related to the coins which then will be needed to create the HomeStatView.
- 
 
+## Architecture of Models:
+1. Create a model file in model folder which consists of the desired properties.
+2. Make a view in component folder which consists of a reusable view with all the necessary data in that view.
+3. Make another view in its appropriate folder like Home. This one should consists of the final look of our desire view.
+4. Transfer all NOT view related data to a ViewModel.
+5. Finally call the View of 3rd step inside the final View of the app.
+ 
 ## TODO
 Add UnitTests for all the VMs
 Add UITests for all the Views
