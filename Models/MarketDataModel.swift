@@ -13,11 +13,6 @@ import Foundation
  
  {
    "data": {
-     "active_cryptocurrencies": 14635,
-     "upcoming_icos": 0,
-     "ongoing_icos": 49,
-     "ended_icos": 3376,
-     "markets": 1178,
      "total_market_cap": {
        "btc": 36953169.24057937,
        "eth": 854963432.9017116,
@@ -159,7 +154,6 @@ import Foundation
        "doge": 0.6860454801622783
      },
      "market_cap_change_percentage_24h_usd": -0.0269058980347938,
-     "updated_at": 1724352941
    }
  }
  */
@@ -172,6 +166,27 @@ struct MarketDataModel: Codable {
     let totalMarketCap, totalVolume, marketCapPercentage: [String: Double]
     let marketCapChangePercentage24HUsd: Double
     
+    var marketCap: String {
+        if let item = totalMarketCap.first(where: { $0.key == "usd" }) {
+            return item.value.description
+        }
+        return ""
+    }
+    
+    var volume: String {
+        if let item = totalVolume.first(where: { $0.key == "usd" }) {
+            return item.value.description
+        }
+        return ""
+    }
+    
+    var btcDominance: String {
+        if let item = marketCapPercentage.first(where: { $0.key == "btc" }) {
+            return item.value.description
+        }
+        return ""
+    }
+
 }
 
 

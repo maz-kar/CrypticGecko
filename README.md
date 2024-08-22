@@ -55,13 +55,14 @@ So far 2 models have been used:
 3. Make another view in its appropriate folder like Home. This one should consists of the final look of our desire view.
 4. Transfer all NOT view related data to a ViewModel.
 5. Finally call the View of 3rd step inside the final View of the app.
- 
+
 ## TODO
 Add UnitTests for all the VMs
 Add UITests for all the Views
 Make a separated repo out of LocalFileManager.
 
 On 23.08: 
-- Finish DownloadStatData with Combine
+- Continue with MarketDataService
+
 
 
