@@ -9,8 +9,12 @@ https://www.coingecko.com/en/api
 ## Frameworks
 Swift - SwiftUI - Combine -> ...
 
-## Architecture
-MVVM
+## Architecture of Models:
+1. Create a model file in model folder which consists of the desired properties.
+2. Make a view in component folder which consists of a reusable view with all the necessary data in that view.
+3. Make another view in its appropriate folder like Home. This one should consists of the final look of our desire view.
+4. Transfer all NOT view related data to a ViewModel.
+5. Finally call the View of 3rd step inside the final View of the app.
 
 ## Instructions
 1. Customised color themes and app icon were added to the Assets of the project.
