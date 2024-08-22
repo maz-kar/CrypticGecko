@@ -12,11 +12,9 @@ extension PreviewProvider {
     static var dev: DeveloperPreview {
         return DeveloperPreview.instance
     }
-
 }
 
 class DeveloperPreview {
-    
     static let instance = DeveloperPreview()
     private init() { }
     
@@ -221,10 +219,7 @@ class DeveloperPreview {
            56969.140564644826,
            57154.57504790339,
            57336.828870254896
-
        ]),
        priceChangePercentage24HInCurrency: 3952.64,
        currentHoldings: 1.5)
-    
 }
-

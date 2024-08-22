@@ -10,7 +10,6 @@ import SwiftUI
 import Combine
 
 class HomeViewModel: ObservableObject {
-    
     @Published var allCoins: [CoinsModel] = []
     @Published var portfolioCoinsList: [CoinsModel] = []
     @Published var searchText: String = ""

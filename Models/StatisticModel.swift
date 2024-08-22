@@ -21,5 +21,3 @@ struct StatisticModel: Identifiable, Codable {
     }
 }
 
-
-
