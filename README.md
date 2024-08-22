@@ -46,6 +46,11 @@ The searchText published var in HomeViewModel will be binded to SearchBarView. T
 Hence, if we subscribe to this publisher, we can use its value.
 
 We wanted to combine $searchText and $allCoins publishers and map them to a new array CoinsModel and also filter them.
+
+## Models:
+So far 2 models have been used:
+1. CoinsModel: which consists of ALL data related to the coins, coming from the URL.
+2. StatisticModel: which consists of selected data related to the coins which then will be needed to create the HomeStatView.
  
 
 ## TODO
@@ -53,7 +58,7 @@ Add UnitTests for all the VMs
 Add UITests for all the Views
 Make a separated repo out of LocalFileManager.
 
-On 22.08: 
-- Finish StatisticModel
+On 23.08: 
+- Finish DownloadStatData with Combine
 
 
