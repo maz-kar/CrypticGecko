@@ -158,7 +158,7 @@ import Foundation
  }
  */
 
-struct GlobalDataModel: Codable {
+struct GlobalData: Codable {
     let data: MarketDataModel?
 }
 

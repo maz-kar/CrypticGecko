@@ -62,7 +62,7 @@ Add UITests for all the Views
 Make a separated repo out of LocalFileManager.
 
 On 23.08: 
-- Continue with MarketDataService
+- subscribe to marketData from the service + make a separate map func
 
 
 
