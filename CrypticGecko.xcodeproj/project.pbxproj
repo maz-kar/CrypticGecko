@@ -36,6 +36,7 @@
 		6BF46CA92B827BFE0097DF37 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF46CA82B827BFE0097DF37 /* Color.swift */; };
 		6BF506392C778FAE001DF504 /* HomeStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF506382C778FAE001DF504 /* HomeStatsView.swift */; };
 		6BF5063B2C77C17A001DF504 /* MarketDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF5063A2C77C17A001DF504 /* MarketDataModel.swift */; };
+		6BF5063D2C7858E0001DF504 /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF5063C2C7858DF001DF504 /* MarketDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		6BF46CA82B827BFE0097DF37 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6BF506382C778FAE001DF504 /* HomeStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsView.swift; sourceTree = "<group>"; };
 		6BF5063A2C77C17A001DF504 /* MarketDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataModel.swift; sourceTree = "<group>"; };
+		6BF5063C2C7858DF001DF504 /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			children = (
 				6B9F9E882BE524BA00BD1DBF /* CoinDataService.swift */,
 				6B96B5782BF25EBA001B0128 /* CoinImageService.swift */,
+				6BF5063C2C7858DF001DF504 /* MarketDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				6B7B99892C7397C6005AC1E9 /* CoinImageViewModelTest.swift in Sources */,
 				6B7B99872C7397B9005AC1E9 /* CoinImageServiceTest.swift in Sources */,
 				6B9F9E892BE524BA00BD1DBF /* CoinDataService.swift in Sources */,
+				6BF5063D2C7858E0001DF504 /* MarketDataService.swift in Sources */,
 				6B14C5C52B99CD1100BBED30 /* CircleButtonView.swift in Sources */,
 				6B14C5C22B99C2D700BBED30 /* HomeViewModel.swift in Sources */,
 				6B214C162C09995B008410D8 /* SearchBarView.swift in Sources */,
