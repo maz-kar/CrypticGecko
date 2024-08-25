@@ -12,8 +12,8 @@ import Combine
 class HomeViewModel: ObservableObject {
     @Published var allCoins: [CoinsModel] = []
     @Published var portfolioCoinsList: [CoinsModel] = []
-    @Published var searchText: String = ""
     @Published var statistics: [StatisticModel] = []
+    @Published var searchText: String = ""
     
     private let coinDataService = CoinDataService()
     private let marketDataService = MarketDataService()
@@ -24,6 +24,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func addSubscribers() {
+        //updates allCoins
         $searchText
             .combineLatest(coinDataService.$allCoins)
             .debounce(for: 0.5, scheduler: DispatchQueue.main)
@@ -33,6 +34,7 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
+        //updates marketData
         marketDataService.$marketData
             .map(mapGlobalMarketData)
             .sink { [weak self] returnedMarketData in
