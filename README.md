@@ -61,8 +61,7 @@ Add UnitTests for all the VMs
 Add UITests for all the Views
 Make a separated repo out of LocalFileManager.
 
-On 23.08: 
-- subscribe to marketData from the service + make a separate map func
+On 26.08: 
 
 
 
