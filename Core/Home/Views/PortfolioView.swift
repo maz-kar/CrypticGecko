@@ -8,16 +8,28 @@
 import SwiftUI
 
 struct PortfolioView: View {
-    
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(alignment: .leading, spacing: 0){
+                VStack{
                     Text("Hi")
                 }
             }
             .navigationTitle("Edit Portfolio")
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "xmark")
+                            .font(.headline)
+                    })
+                        
+                }
+            })
         }
+
     }
 }
 
