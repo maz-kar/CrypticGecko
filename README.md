@@ -63,7 +63,7 @@ Make a separated repo out of LocalFileManager.
 
 On 26.08: 
 - Finish the portfolioView.
-What here want is, to show a sheet view after the user presses on the + button and then make them being able to add their coin to that sheet view and finally to show it to the portfolioView. 
+Continue with coinSelection logic
 
 
 
