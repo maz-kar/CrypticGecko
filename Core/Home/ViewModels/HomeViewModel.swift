@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class HomeViewModel: ObservableObject {
+class HomeViewModel: ObservableObject, Observable {
     @Published var allCoins: [CoinsModel] = []
     @Published var portfolioCoinsList: [CoinsModel] = []
     @Published var statistics: [StatisticModel] = []

@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct HomeView: View {
-    
     @EnvironmentObject private var vm: HomeViewModel
-    @State private var showPortfolio = false
+    @State private var showPortfolio: Bool = false
+    @State private var showPortfolioView: Bool = false
     
     var body: some View {
         ZStack {
             Color.theme.backgroundColor
                 .ignoresSafeArea()
-            
+                .sheet(isPresented: $showPortfolioView, content: {
+                    /*
+                     Our HomeView has the environment of HomeViewModel.
+                     But the .sheet's content is PortfolioView which is total new envorinment.
+                     If we want the environment object in our portfolio, we need to add it manually to environment of the PortfolioView
+                     */
+                    PortfolioView()
+                        .environment(vm)
+                })
             VStack {
                 homeHeader
                 
@@ -54,6 +62,11 @@ extension HomeView {
     private var homeHeader: some View {
         HStack() {
             CircleButtonView(iconName: showPortfolio ? "plus" : "info")
+                .onTapGesture {
+                    if showPortfolio {
+                        showPortfolioView.toggle()
+                    }
+                }
                 .animation(.none, value: showPortfolio)
                 .background {
                     CircleButtonAnimationView(animate: $showPortfolio)
