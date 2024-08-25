@@ -27,9 +27,7 @@ struct CoinLogoView: View {
                 .lineLimit(2)
                 .minimumScaleFactor(0.5)
                 .multilineTextAlignment(.center)
-
         }
-        
     }
 }
 
@@ -44,7 +42,5 @@ struct CoinLogoView_Previews: PreviewProvider {
                 .previewLayout(.sizeThatFits)
                 .preferredColorScheme(.dark)
         }
-
-        
     }
 }
