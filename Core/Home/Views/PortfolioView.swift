@@ -10,6 +10,7 @@ import SwiftUI
 struct PortfolioView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var vm: HomeViewModel
+    @State private var selectedCoin: CoinsModel? = nil
     
     var body: some View {
         NavigationView {
@@ -23,9 +24,15 @@ struct PortfolioView: View {
                                 CoinLogoView(coin: coin)
                                     .frame(width: 75)
                                     .padding(4)
+                                    .onTapGesture {
+                                        withAnimation(.easeIn) {
+                                            selectedCoin = coin
+                                        }
+                                    }
                                     .background(
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.theme.greenColor, lineWidth: 1.0)
+                                            .stroke(selectedCoin?.id == coin.id ? Color.theme.greenColor : Color.clear
+                                                    , lineWidth: 1.0)
                                     )
                             }
                         }
@@ -33,7 +40,6 @@ struct PortfolioView: View {
                         .padding(.leading)
                     })
                 }
-                
             }
             //Good practice for navigation elements from Title to Item, dismiss etc.
             .navigationTitle("Edit Portfolio")
