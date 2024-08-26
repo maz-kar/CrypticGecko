@@ -23,7 +23,6 @@ struct PortfolioView: View {
                     if selectedCoin != nil {
                         portfoliInputSection
                     }
-                    
                 }
             }
             //Good practice for navigation elements from Title to Item, dismiss etc.
@@ -36,7 +35,6 @@ struct PortfolioView: View {
                         Image(systemName: "xmark")
                             .font(.headline)
                     })
-                    
                 }
             })
         }
@@ -71,7 +69,7 @@ extension PortfolioView {
                         )
                 }
             }
-            .padding(.vertical, 4)
+            .frame(height: 120)
             .padding(.leading)
         })
     }
@@ -105,6 +103,7 @@ extension PortfolioView {
                 Text("\(getCurrentValue().asCurrencyWith2Decimals())")
             }
         }
+        .animation(.none, value: UUID())
         .padding()
         .font(.headline)
     }
