@@ -22,12 +22,20 @@ struct PortfolioView: View {
                             ForEach(vm.allCoins) { coin in
                                 CoinLogoView(coin: coin)
                                     .frame(width: 75)
+                                    .padding(4)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.theme.greenColor, lineWidth: 1.0)
+                                    )
                             }
                         }
+                        .padding(.vertical, 4)
+                        .padding(.leading)
                     })
                 }
                 
             }
+            //Good practice for navigation elements from Title to Item, dismiss etc.
             .navigationTitle("Edit Portfolio")
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -41,7 +49,6 @@ struct PortfolioView: View {
                 }
             })
         }
-        
     }
 }
 

@@ -64,6 +64,8 @@ Make a separated repo out of LocalFileManager.
 On 26.08: 
 - Finish the portfolioView.
 Continue with coinSelection logic
+- FIX: the stroke around STETH coin is smaller than others.
+
 
 
 
