@@ -15,13 +15,13 @@ struct PortfolioView: View {
     @State private var showCheckMark: Bool = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0){
                     SearchBarView(searchText: $vm.searchText)
                     coinLogoList
                     
-                    if selectedCoin != nil {
+                    if selectedCoin != nil { //Good practice to hide a view. If not yet selected, the view will not be shown
                         portfoliInputSection
                     }
                 }
@@ -58,18 +58,19 @@ extension PortfolioView {
                         .frame(width: 75)
                         .padding(4)
                         .onTapGesture {
-                            withAnimation(.easeIn) {
+                            withAnimation(.easeIn) { //Good practice of giving an animation vibe when clicking on
                                 selectedCoin = coin
                             }
                         }
-                        .background(
+                        .background( //This is the background of the frame of each coin
                             RoundedRectangle(cornerRadius: 10)
+                            //IMPORTANT: it wont work with selectedCoin == coin. Using .id will make both sides equatable
                                 .stroke(selectedCoin?.id == coin.id ? Color.theme.greenColor : Color.clear
-                                        , lineWidth: 1.0)
+                                        , lineWidth: 1.0) //This stroke has content and lineWidth.
                         )
                 }
             }
-            .frame(height: 120)
+            .frame(height: 120) //Good practice for an optimum frame. There is a gap between CoinLogoView and the parent LazyHStack, that's why we are not using both height or width with one frame
             .padding(.leading)
         })
     }
@@ -93,8 +94,8 @@ extension PortfolioView {
                 Text("Amount holding:")
                 Spacer()
                 TextField("Ex: 1.4", text: $quantityText)
-                    .multilineTextAlignment(.trailing)
-                    .keyboardType(.decimalPad)
+                    .multilineTextAlignment(.trailing) //To move the placeholder on textField
+                    .keyboardType(.decimalPad) //To popup only numberPad on virtual keyboard
             }
             Divider()
             HStack {
@@ -103,7 +104,7 @@ extension PortfolioView {
                 Text("\(getCurrentValue().asCurrencyWith2Decimals())")
             }
         }
-        .animation(.none, value: UUID())
+        .animation(.none, value: UUID()) //The new animation requires _value to toggle the animation but as we were looking for .none which should be applied in ANY case, we put random value using UUID()
         .padding()
         .font(.headline)
     }
@@ -126,7 +127,7 @@ extension PortfolioView {
             }, label: {
                 Text("Save".uppercased())
             })
-            .opacity(selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText) ? 1.0 : 0.0)
+            .opacity(selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText) ? 1.0 : 0.0) //show the SAVE button if... could also simply be && quantityText != ""
         }
         .font(.headline)
     }
@@ -136,21 +137,17 @@ extension PortfolioView {
         
         withAnimation(.easeIn) {
             showCheckMark = true
-            removeSelectedCoin()
+            selectedCoin = nil //if selectedCoin is nil, portfoliInputSection will be disappeared
+            vm.searchText = ""
         }
         
-        UIApplication.shared.endEditing()
+        UIApplication.shared.endEditing() //Dismisses the virtual keyboard when save was pressed.
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             withAnimation(.easeOut) {
                 showCheckMark = false
             }
         }
-    }
-    
-    private func removeSelectedCoin() {
-        selectedCoin = nil
-        vm.searchText = ""
     }
     
 }
