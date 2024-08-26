@@ -61,10 +61,8 @@ Add UnitTests for all the VMs
 Add UITests for all the Views
 Make a separated repo out of LocalFileManager.
 
-On 26.08: 
-- Finish the portfolioView.
-Continue with coinSelection logic
-- FIX: the stroke around STETH coin is smaller than others.
+On 27.08: 
+- Save the holdings on coreData
 
 
 
