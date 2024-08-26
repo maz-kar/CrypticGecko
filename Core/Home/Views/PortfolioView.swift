@@ -11,6 +11,7 @@ struct PortfolioView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var vm: HomeViewModel
     @State private var selectedCoin: CoinsModel? = nil
+    @State private var quantityText: String = ""
     
     var body: some View {
         NavigationView {
@@ -18,6 +19,10 @@ struct PortfolioView: View {
                 VStack(alignment: .leading, spacing: 0){
                     SearchBarView(searchText: $vm.searchText)
                     coinLogoList
+                    
+                    if selectedCoin != nil {
+                        portfoliInputSection
+                    }
                     
                 }
             }
@@ -69,6 +74,39 @@ extension PortfolioView {
             .padding(.vertical, 4)
             .padding(.leading)
         })
+    }
+    
+    private func getCurrentValue() -> Double {
+        if let quantity = Double(quantityText) {
+            return quantity * (selectedCoin?.currentPrice ?? 0)
+        }
+        return 0
+    }
+    
+    private var portfoliInputSection: some View {
+        VStack {
+            HStack {
+                Text("Current price of \(selectedCoin?.symbol.uppercased() ?? ""):")
+                Spacer()
+                Text("\(selectedCoin?.currentPrice.asCurrencyWith2Decimals() ?? "")")
+            }
+            Divider()
+            HStack {
+                Text("Amount holding:")
+                Spacer()
+                TextField("Ex: 1.4", text: $quantityText)
+                    .multilineTextAlignment(.trailing)
+                    .keyboardType(.decimalPad)
+            }
+            Divider()
+            HStack {
+                Text("Current value:")
+                Spacer()
+                Text("\(getCurrentValue().asCurrencyWith2Decimals())")
+            }
+        }
+        .padding()
+        .font(.headline)
     }
     
 }
