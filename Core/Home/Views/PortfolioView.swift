@@ -37,6 +37,11 @@ struct PortfolioView: View {
                     trailingNavBarButtons
                 }
             })
+            .onChange(of: vm.searchText) { //watches any value in our app, and if it changes, we can run a func.
+                if vm.searchText == "" {
+                    removeSelectedCoin()
+                }
+            }
         }
     }
 }
@@ -137,8 +142,7 @@ extension PortfolioView {
         
         withAnimation(.easeIn) {
             showCheckMark = true
-            selectedCoin = nil //if selectedCoin is nil, portfoliInputSection will be disappeared
-            vm.searchText = ""
+            removeSelectedCoin()
         }
         
         UIApplication.shared.endEditing() //Dismisses the virtual keyboard when save was pressed.
@@ -148,6 +152,11 @@ extension PortfolioView {
                 showCheckMark = false
             }
         }
+    }
+    
+    private func removeSelectedCoin() {
+        selectedCoin = nil //if selectedCoin is nil, portfoliInputSection will be disappeared
+        vm.searchText = ""
     }
     
 }
