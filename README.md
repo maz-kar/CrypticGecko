@@ -49,6 +49,11 @@ So far 2 models have been used:
 1. CoinsModel: which consists of ALL data related to the coins, coming from the URL.
 2. StatisticModel: which consists of selected data related to the coins which then will be needed to create the HomeStatView.
 
+### CoreData:
+Saving data, like downloading data, needs a Service class. The difference will be that, in downloading the end point is a URL but in Saving, it will be coreData of the currentPortfolio in this specific case.
+Before we start working with CoreData, we need to setup a coreData Entity, that we will be storing in CoreData. 
+For organizing purposes, remember to save the entity file in Model folder as it's really a model.
+
 ## Architecture of Models:
 1. Create a model file in model folder which consists of the desired properties.
 2. Make a view in component folder which consists of a reusable view with all the necessary data in that view.
@@ -63,6 +68,7 @@ Make a separated repo out of LocalFileManager.
 
 On 27.08: 
 - Save the holdings on coreData
+
 
 
 
