@@ -26,6 +26,7 @@ struct SearchBarView: View {
                             //shared is the singleton instance of UIApplication
                             UIApplication.shared.endEditing()
                             searchText = ""
+                            //Ideally it could be perfect if we could hide portfoliInputSection
                         }
                 }
                 .disableAutocorrection(true)

@@ -22,7 +22,7 @@ struct PortfolioView: View {
                     coinLogoList
                     
                     if selectedCoin != nil { //Good practice to hide a view. If not yet selected, the view will not be shown
-                        portfoliInputSection
+                        portfolioInputSection
                     }
                 }
             }
@@ -82,7 +82,7 @@ extension PortfolioView {
         return 0
     }
     
-    private var portfoliInputSection: some View {
+    private var portfolioInputSection: some View {
         VStack {
             HStack {
                 Text("Current price of \(selectedCoin?.symbol.uppercased() ?? ""):")
@@ -133,7 +133,7 @@ extension PortfolioView {
     }
     
     private func saveButtonPressed() {
-        guard let coin = selectedCoin else { return }
+        //guard let coin = selectedCoin else { return }
         
         withAnimation(.easeIn) {
             showCheckMark = true
