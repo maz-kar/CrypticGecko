@@ -66,7 +66,7 @@ Add UnitTests for all the VMs
 Add UITests for all the Views
 Make a separated repo out of LocalFileManager.
 
-On 27.08: 
+On 05.09: 
 - Save the holdings on coreData
 
 
