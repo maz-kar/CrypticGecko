@@ -22,6 +22,8 @@ import CoreData
  10. Create save func. After either of add, delete and update, we need to save the changed data in our data base.
  11. Create applyChanges func. To call both save and fetch, in order to save and reload the saveEntities. This func will be called inside of each one of add, delete, update funcs.
  12. Create a public func updatePortfolio which at the end will be called from outer classes like the ViewModel.
+ 13. Make updatePortfolio flexible to scenarios of add OR delete/update.
+ 
  */
 
 class PortfolioDataService {
@@ -38,14 +40,22 @@ class PortfolioDataService {
                 print("Error loading core data. \(error)")
             }
         }
-        
-        fetch()
+        self.fetch()
     }
     
     //MARK: Public
     
     func updatePortfolio(coin: CoinsModel, amount: Double) {
-        
+        //Checks if coin is already in portfolio
+        if let entity = savedEntities.first(where: { $0.coinID == coin.id }) {
+            if amount > 0 {
+                update(entity: entity, amount: amount)
+            } else {
+                delete(entity: entity)
+            }
+        } else {
+            add(coin: coin, amount: amount)
+        }
     }
     
     //MARK: Private
@@ -64,13 +74,11 @@ class PortfolioDataService {
         let newItem = PortfolioEntity(context: container.viewContext)
         newItem.coinID = coin.id
         newItem.amount = amount
-        
         applyChanges()
     }
     
     private func delete(entity: PortfolioEntity) {
         container.viewContext.delete(entity)
-        
         applyChanges()
     }
     
