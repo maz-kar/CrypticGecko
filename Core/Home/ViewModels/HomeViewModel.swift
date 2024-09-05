@@ -11,7 +11,7 @@ import Combine
 
 class HomeViewModel: ObservableObject, Observable {
     @Published var allCoins: [CoinsModel] = []
-    @Published var portfolioCoinsList: [CoinsModel] = []
+    @Published var portfolioCoins: [CoinsModel] = []
     @Published var statistics: [StatisticModel] = []
     @Published var searchText: String = ""
     
@@ -44,6 +44,28 @@ class HomeViewModel: ObservableObject, Observable {
             }
             .store(in: &cancellables)
         
+        //updates portfolioCoins
+        $allCoins
+            .combineLatest(portfolioDataService.$savedEntities)
+        //What we do will be look through all coinModels, to see if anyone of those is included in portfolioEntities. Then use those ones
+            .map { coinModels, portfolioEntities -> [CoinsModel] in
+                coinModels
+                //we use compactMap cause it can return nil and for the coins that are not needed in portfolioEntities we then return nil
+                    .compactMap { coin -> CoinsModel? in
+                        guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
+                            return nil
+                        }
+                        return coin.updateHoldings(amount: entity.amount)
+                    }
+            }
+            .sink { [weak self] returnedCoins in
+                self?.portfolioCoins = returnedCoins
+            }
+            .store(in: &cancellables)
+    }
+    
+    func updatePortfolio(coin: CoinsModel, amount: Double) {
+        portfolioDataService.updatePortfolio(coin: coin, amount: amount)
     }
     
     private func filterCoins(text: String, coins: [CoinsModel]) -> [CoinsModel] {
