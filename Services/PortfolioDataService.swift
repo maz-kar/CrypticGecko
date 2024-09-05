@@ -47,12 +47,12 @@ class PortfolioDataService {
         }
     }
     
-    private func addItem(coinID: String, amount: Double) {
+    private func addItem(coin: CoinsModel, amount: Double) {
         let newItem = PortfolioEntity(context: container.viewContext)
-        newItem.coinID = coinID
+        newItem.coinID = coin.id
         newItem.amount = amount
         
-        saveItem()
+        applyChanges()
     }
     
     private func saveItem() {
@@ -61,15 +61,11 @@ class PortfolioDataService {
         } catch let error {
             print("Error saving portfolio entities. \(error)")
         }
-        
-        fetchItem()
     }
     
-    
-    
-    
-    
-    
-    
+    private func applyChanges() {
+        saveItem()
+        fetchItem()
+    }
     
 }
