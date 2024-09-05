@@ -34,10 +34,10 @@ class PortfolioDataService {
             }
         }
         
-        fetchItem()
+        fetch()
     }
     
-    private func fetchItem() {
+    private func fetch() {
         let request = NSFetchRequest<PortfolioEntity>(entityName: "PortfolioEntity")
         
         do {
@@ -47,7 +47,7 @@ class PortfolioDataService {
         }
     }
     
-    private func addItem(coin: CoinsModel, amount: Double) {
+    private func add(coin: CoinsModel, amount: Double) {
         let newItem = PortfolioEntity(context: container.viewContext)
         newItem.coinID = coin.id
         newItem.amount = amount
@@ -55,7 +55,7 @@ class PortfolioDataService {
         applyChanges()
     }
     
-    private func saveItem() {
+    private func save() {
         do {
             try container.viewContext.save()
         } catch let error {
@@ -63,9 +63,14 @@ class PortfolioDataService {
         }
     }
     
+    private func update(entity: PortfolioEntity, amount: Double) {
+        entity.amount = amount
+        applyChanges()
+    }
+    
     private func applyChanges() {
-        saveItem()
-        fetchItem()
+        save()
+        fetch()
     }
     
 }
