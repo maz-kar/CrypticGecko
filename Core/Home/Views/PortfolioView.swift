@@ -64,7 +64,7 @@ extension PortfolioView {
                         .padding(4)
                         .onTapGesture {
                             withAnimation(.easeIn) { //Good practice of giving an animation vibe when clicking on
-                                selectedCoin = coin
+                                updateSelectedCoin(coin: coin)
                             }
                         }
                         .background( //This is the background of the frame of each coin
@@ -78,6 +78,17 @@ extension PortfolioView {
             .frame(height: 120) //Good practice for an optimum frame. There is a gap between CoinLogoView and the parent LazyHStack, that's why we are not using both height or width with one frame
             .padding(.leading)
         })
+    }
+    
+    private func updateSelectedCoin(coin: CoinsModel) {
+        selectedCoin = coin
+        
+        if let portfolioCoin = vm.portfolioCoins.first(where: { $0.id == coin.id }),
+           let amount = portfolioCoin.currentHoldings {
+            quantityText = "\(amount)"
+        } else {
+            quantityText = ""
+        }
     }
     
     private func getCurrentValue() -> Double {
