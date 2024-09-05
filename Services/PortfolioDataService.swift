@@ -34,10 +34,10 @@ class PortfolioDataService {
             }
         }
         
-        getPortfolio()
+        fetchItem()
     }
     
-    private func getPortfolio() {
+    private func fetchItem() {
         let request = NSFetchRequest<PortfolioEntity>(entityName: "PortfolioEntity")
         
         do {
@@ -45,6 +45,24 @@ class PortfolioDataService {
         } catch let error {
             print("Error fetching portfolio entities. \(error)")
         }
+    }
+    
+    private func addItem(coinID: String, amount: Double) {
+        let newItem = PortfolioEntity(context: container.viewContext)
+        newItem.coinID = coinID
+        newItem.amount = amount
+        
+        saveItem()
+    }
+    
+    private func saveItem() {
+        do {
+            try container.viewContext.save()
+        } catch let error {
+            print("Error saving portfolio entities. \(error)")
+        }
+        
+        fetchItem()
     }
     
     
