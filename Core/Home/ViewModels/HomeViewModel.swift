@@ -57,6 +57,7 @@ class HomeViewModel: ObservableObject, Observable {
         
         //updates marketData
         marketDataService.$marketData
+            .combineLatest($portfolioCoins)
             .map(mapGlobalMarketData)
             .sink { [weak self] returnedMarketData in
                 self?.statistics = returnedMarketData
@@ -79,7 +80,7 @@ class HomeViewModel: ObservableObject, Observable {
         }
     }
     
-    private func mapGlobalMarketData(marketData: MarketDataModel?) -> [StatisticModel] {
+    private func mapGlobalMarketData(marketData: MarketDataModel?, portfolioCoins: [CoinsModel]) -> [StatisticModel] { //without adding portfolioCoins as a parameter to this map, portfolioCoins will not have any update cause it means we are not subscribing to @Published portfolioCoins
         //Good practice for mapping received data from the api
         var stats: [StatisticModel] = []
         
@@ -89,7 +90,13 @@ class HomeViewModel: ObservableObject, Observable {
         let marketPlaceSection = StatisticModel(title: "Market Place", value: data.marketCap, precentageChange: data.marketCapChangePercentage24HUsd)
         let volumeSection = StatisticModel(title: "24h Volume", value: data.volume)
         let btcDominanceSection = StatisticModel(title: "BTC Dominance", value: data.btcDominance)
-        let portfolioValueSection = StatisticModel(title: "Portfolio Value", value: "$0.0", precentageChange: 0.0)
+        
+        let portfolioValue =
+        portfolioCoins
+            .map({$0.currentHoldingsValue})
+            .reduce(0, +) //using reduce we could turn all numbers of [CoinsModel] into one single sum for all filter coins in CoinsModel
+        
+        let portfolioValueSection = StatisticModel(title: "Portfolio Value", value: portfolioValue.asCurrencyWith2Decimals(), precentageChange: 0.0)
         
         stats.append(contentsOf: [marketPlaceSection,volumeSection,btcDominanceSection,portfolioValueSection])
         return stats

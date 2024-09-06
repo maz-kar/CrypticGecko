@@ -68,7 +68,6 @@ For organizing purposes, remember to save the entity file in Model folder as it'
  10. Create applyChanges func. To call both save and fetch, in order to save and reload the saveEntities. This func will be called inside of each one of add, delete, update funcs.
  11. Create a public func updatePortfolio which at the end will be called from outer classes like the ViewModel.
  12. Make updatePortfolio flexible to scenarios of add OR delete/update.
- 13.
 
 
 ## Architecture of Models:
