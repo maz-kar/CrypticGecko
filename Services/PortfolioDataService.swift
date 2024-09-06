@@ -8,24 +8,6 @@
 import Foundation
 import CoreData
 
-/*
- Steps:
- 1. We need a container.
- 2. Create the container in the init.
- 3. Load the data from the container.
- 4. Create fetch func.
- 5. Define a savedEntities property with [PortfolioEntity]
- 6. Set the savedEntities with fetched data
- 7. Create add func. Here we set attributes of our data base with the data from HomeViewModel and amount that we are passing during the call of this func.
- 8. Create delete func.
- 9. Create update func. We need it for the cases that we want to change the amount of already existed entity.
- 10. Create save func. After either of add, delete and update, we need to save the changed data in our data base.
- 11. Create applyChanges func. To call both save and fetch, in order to save and reload the saveEntities. This func will be called inside of each one of add, delete, update funcs.
- 12. Create a public func updatePortfolio which at the end will be called from outer classes like the ViewModel.
- 13. Make updatePortfolio flexible to scenarios of add OR delete/update.
- 
- */
-
 class PortfolioDataService {
     private let container: NSPersistentContainer
     private let containerName: String = "PortfolioContainer"

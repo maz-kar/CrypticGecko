@@ -49,10 +49,27 @@ So far 2 models have been used:
 1. CoinsModel: which consists of ALL data related to the coins, coming from the URL.
 2. StatisticModel: which consists of selected data related to the coins which then will be needed to create the HomeStatView.
 
-### CoreData:
+## CoreData:
 Saving data, like downloading data, needs a Service class. The difference will be that, in downloading the end point is a URL but in Saving, it will be coreData of the currentPortfolio in this specific case.
 Before we start working with CoreData, we need to setup a coreData Entity, that we will be storing in CoreData. 
 For organizing purposes, remember to save the entity file in Model folder as it's really a model.
+
+### Steps:
+ 1. We need a container.
+ 1. Create the container in the init.
+ 2. Load the data from the container.
+ 3. Create fetch func.
+ 4. Define a savedEntities property with PortfolioEntity array.
+ 5. Set the savedEntities with fetched data
+ 6. Create add func. Here we set attributes of our data base with the data from HomeViewModel and amount that we are passing during the call of this func.
+ 7. Create delete func.
+ 8. Create update func. We need it for the cases that we want to change the amount of already existed entity.
+ 9. Create save func. After either of add, delete and update, we need to save the changed data in our data base.
+ 10. Create applyChanges func. To call both save and fetch, in order to save and reload the saveEntities. This func will be called inside of each one of add, delete, update funcs.
+ 11. Create a public func updatePortfolio which at the end will be called from outer classes like the ViewModel.
+ 12. Make updatePortfolio flexible to scenarios of add OR delete/update.
+ 13.
+
 
 ## Architecture of Models:
 1. Create a model file in model folder which consists of the desired properties.
@@ -62,12 +79,12 @@ For organizing purposes, remember to save the entity file in Model folder as it'
 5. Finally call the View of 3rd step inside the final View of the app.
 
 ## TODO
-Add UnitTests for all the VMs
+Add UnitTests for all the VMs after finishin the app.
 Add UITests for all the Views
-Make a separated repo out of LocalFileManager.
 
-On 05.09: 
-- Save the holdings on coreData
+On 06.09: 
+- Finish Saving with CoreData
+-
 
 
 
