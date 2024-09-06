@@ -58,6 +58,7 @@ extension PortfolioView {
     private var coinLogoList: some View {
         ScrollView(.horizontal, showsIndicators: false, content: {
             LazyHStack(spacing: 10) {
+                //if searchField is empty, just show the purchased coins, if not, show allCoins BUT remember allCoins is the filtered one through searching process
                 ForEach(vm.searchText.isEmpty ? vm.portfolioCoins : vm.allCoins) { coin in
                     CoinLogoView(coin: coin)
                         .frame(width: 75)
@@ -82,12 +83,12 @@ extension PortfolioView {
     
     private func updateSelectedCoin(coin: CoinsModel) {
         selectedCoin = coin
-        
+        //Checks if coin exists in portfolio list
         if let portfolioCoin = vm.portfolioCoins.first(where: { $0.id == coin.id }),
            let amount = portfolioCoin.currentHoldings {
-            quantityText = "\(amount)"
+            quantityText = "\(amount)" //if so, amount of this existing coin is its currentHolding
         } else {
-            quantityText = ""
+            quantityText = "" //if not, we should see empty textField
         }
     }
     
