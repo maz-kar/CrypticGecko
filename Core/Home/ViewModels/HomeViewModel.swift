@@ -62,6 +62,7 @@ class HomeViewModel: ObservableObject, Observable {
         isLoading = true
         coinDataService.getCoins()
         marketDataService.getMarketData()
+        HapticManager.notification(type: .success)
     }
     
     func updatePortfolio(coin: CoinsModel, amount: Double) {
