@@ -83,8 +83,7 @@ Add UnitTests for all the VMs after finishin the app.
 Add UITests for all the Views
 
 On 06.09: 
-- Finish Saving with CoreData
--
+- Finish Reloading the list with updated data.
 
 
 

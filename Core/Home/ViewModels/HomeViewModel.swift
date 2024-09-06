@@ -36,14 +36,6 @@ class HomeViewModel: ObservableObject, Observable {
             }
             .store(in: &cancellables)
         
-        //updates marketData
-        marketDataService.$marketData
-            .map(mapGlobalMarketData)
-            .sink { [weak self] returnedMarketData in
-                self?.statistics = returnedMarketData
-            }
-            .store(in: &cancellables)
-        
         //updates portfolioCoins
         $allCoins
             .combineLatest(portfolioDataService.$savedEntities)
@@ -60,6 +52,14 @@ class HomeViewModel: ObservableObject, Observable {
             }
             .sink { [weak self] returnedCoins in
                 self?.portfolioCoins = returnedCoins
+            }
+            .store(in: &cancellables)
+        
+        //updates marketData
+        marketDataService.$marketData
+            .map(mapGlobalMarketData)
+            .sink { [weak self] returnedMarketData in
+                self?.statistics = returnedMarketData
             }
             .store(in: &cancellables)
     }
