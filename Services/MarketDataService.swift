@@ -17,7 +17,7 @@ class MarketDataService {
         getMarketData()
     }
     
-    private func getMarketData() {
+    func getMarketData() {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         guard let url = URL(string: "https://api.coingecko.com/api/v3/global") else { return }
