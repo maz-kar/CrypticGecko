@@ -40,16 +40,7 @@ class HomeViewModel: ObservableObject, Observable {
         $allCoins
             .combineLatest(portfolioDataService.$savedEntities)
         //What we do will be look through all coinModels, to see if anyone of those is included in portfolioEntities. Then use those ones
-            .map { coinModels, portfolioEntities -> [CoinsModel] in
-                coinModels
-                //we use compactMap cause it can return nil and for the coins that are not needed in portfolioEntities we then return nil
-                    .compactMap { coin -> CoinsModel? in
-                        guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
-                            return nil
-                        }
-                        return coin.updateHoldings(amount: entity.amount)
-                    }
-            }
+            .map(mapAllCoinsToPortfolioCoins)
             .sink { [weak self] returnedCoins in
                 self?.portfolioCoins = returnedCoins
             }
@@ -113,5 +104,17 @@ class HomeViewModel: ObservableObject, Observable {
         
         stats.append(contentsOf: [marketPlaceSection,volumeSection,btcDominanceSection,portfolioValueSection])
         return stats
+    }
+    
+    private func mapAllCoinsToPortfolioCoins(allCoins: [CoinsModel], portfolioEntities: [PortfolioEntity]) -> [CoinsModel] {
+        allCoins
+        //we use compactMap cause it can return nil and for the coins that are not needed in portfolioEntities we then return nil
+            .compactMap { coin -> CoinsModel? in
+                guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
+                    return nil
+                }
+                return coin.updateHoldings(amount: entity.amount)
+            }
+        
     }
 }
