@@ -78,11 +78,12 @@ For organizing purposes, remember to save the entity file in Model folder as it'
 5. Finally call the View of 3rd step inside the final View of the app.
 
 ## TODO
-Add UnitTests for all the VMs after finishin the app.
+Add UnitTests for all the VMs after finishing the app.
 Add UITests for all the Views
 
-On 06.09: 
-- Finish Reloading the list with updated data.
+On 10.09: 
+- Do the whole reloading logic.
+- Do the sorting 
 
 
 
