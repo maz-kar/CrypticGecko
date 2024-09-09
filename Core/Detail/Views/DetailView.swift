@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct DetailView: View {
+    let coin: CoinsModel
+    
+    init(coin: CoinsModel) {
+        self.coin = coin
+        print("Initializing Detail View for \(coin.name)")
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(coin.name)
     }
 }
 
-#Preview {
-    DetailView()
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            DetailView(coin: dev.coin)
+        }
+    }
 }

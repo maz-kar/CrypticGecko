@@ -96,6 +96,9 @@ extension HomeView {
             ForEach(vm.allCoins) { coin in
                 CoinsRowView(coin: coin, showHoldingsColumn: false)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .onTapGesture {
+                        segue(coin: coin)
+                    }
             }
         }
         .listStyle(.plain)
@@ -107,9 +110,17 @@ extension HomeView {
             ForEach(vm.portfolioCoins) { coin in
                 CoinsRowView(coin: coin, showHoldingsColumn: true)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .onTapGesture {
+                        segue(coin: coin)
+                    }
+                
             }
         }
         .listStyle(.plain)
+    }
+    
+    private func segue(coin: CoinsModel) {
+        
     }
     
     private var columnTitles: some View {
