@@ -15,6 +15,7 @@ class HomeViewModel: ObservableObject, Observable {
     @Published var statistics: [StatisticModel] = []
     @Published var searchText: String = ""
     @Published var isLoading: Bool = false
+    @Published var sortOption: sortOption = .holding
     
     private let coinDataService = CoinDataService()
     private let marketDataService = MarketDataService()
@@ -56,6 +57,10 @@ class HomeViewModel: ObservableObject, Observable {
                 self?.isLoading = false //When the subcribing to all of the publisher is over, we can make isLoading false again.
             }
             .store(in: &cancellables)
+    }
+    
+    enum sortOption {
+        case rank, rankReversed, holding, holdingReversed, price, priceReversed
     }
     
     func reloadData() {
