@@ -53,7 +53,7 @@ class HomeViewModel: ObservableObject, Observable {
             .map(mapGlobalMarketData)
             .sink { [weak self] returnedMarketData in
                 self?.statistics = returnedMarketData
-                self?.isLoading = false
+                self?.isLoading = false //When the subcribing to all of the publisher is over, we can make isLoading false again.
             }
             .store(in: &cancellables)
     }
