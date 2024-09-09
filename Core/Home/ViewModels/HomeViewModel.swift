@@ -15,13 +15,17 @@ class HomeViewModel: ObservableObject, Observable {
     @Published var statistics: [StatisticModel] = []
     @Published var searchText: String = ""
     @Published var isLoading: Bool = false
-    @Published var sortOption: sortOption = .holding
+    @Published var sortOption: SortOption = .holding //we start with hodling sort means "The coins with highest holding will be on the top of the list"
     
     private let coinDataService = CoinDataService()
     private let marketDataService = MarketDataService()
     private let portfolioDataService = PortfolioDataService()
     
     private var cancellables = Set<AnyCancellable>()
+    
+    enum SortOption {
+        case rank, rankReversed, holding, holdingReversed, price, priceReversed
+    }
     
     init() {
         addSubscribers()
@@ -30,9 +34,9 @@ class HomeViewModel: ObservableObject, Observable {
     func addSubscribers() {
         //updates allCoins
         $searchText
-            .combineLatest(coinDataService.$allCoins)
+            .combineLatest(coinDataService.$allCoins, $sortOption)
             .debounce(for: 0.5, scheduler: DispatchQueue.main)
-            .map(filterCoins)
+            .map(filteredAndSortCoins) //Here we filter and sort for rank and price
             .sink { [weak self] returnedCoins in
                 self?.allCoins = returnedCoins
             }
@@ -44,7 +48,9 @@ class HomeViewModel: ObservableObject, Observable {
         //What we do will be look through all coinModels, to see if anyone of those is included in portfolioEntities. Then use those ones
             .map(mapAllCoinsToPortfolioCoins)
             .sink { [weak self] returnedCoins in
-                self?.portfolioCoins = returnedCoins
+                guard let self = self else { return }
+                self.portfolioCoins = self.sortPortfolioCoinsIfNeeded(coins: returnedCoins) //When we get to the portfolio, we do another sort for holdings.
+                
             }
             .store(in: &cancellables)
         
@@ -59,10 +65,6 @@ class HomeViewModel: ObservableObject, Observable {
             .store(in: &cancellables)
     }
     
-    enum sortOption {
-        case rank, rankReversed, holding, holdingReversed, price, priceReversed
-    }
-    
     func reloadData() {
         isLoading = true
         coinDataService.getCoins()
@@ -72,6 +74,13 @@ class HomeViewModel: ObservableObject, Observable {
     
     func updatePortfolio(coin: CoinsModel, amount: Double) {
         portfolioDataService.updatePortfolio(coin: coin, amount: amount)
+    }
+    
+    private func filteredAndSortCoins(text: String, coins: [CoinsModel], sort: SortOption) -> [CoinsModel] {
+        var updatedCoins = filterCoins(text: text, coins: coins)
+        sortCoins(sort: sort, coins: &updatedCoins)
+
+        return updatedCoins
     }
     
     private func filterCoins(text: String, coins: [CoinsModel]) -> [CoinsModel] {
@@ -84,6 +93,31 @@ class HomeViewModel: ObservableObject, Observable {
             return coin.id.contains(lowercasedText) || coin.symbol.contains(lowercasedText) || coin.name.contains(lowercasedText)
         }
     }
+    
+    private func sortCoins(sort: SortOption, coins: inout [CoinsModel]) { //Since we are inputting an array of CoinsModel and outputting the exact same thing, we can take the array and sort it in place and return it back out of the func
+        switch sort {
+        case .rank, .holding: //We add holding and its reversed also here cause here we dont care about them and for now, this is the only way to get rid of "Switch must be exhaustive".
+            coins.sort(by: { $0.rank < $1.rank }) //sort unlike the sortedBy, is doing the sorting IN PLACE, which is exactly what we want from inout
+        case .rankReversed, .holdingReversed:
+            coins.sort(by: { $0.rank > $1.rank })
+        case .price:
+            coins.sort(by: { $0.currentPrice > $1.currentPrice })
+        case .priceReversed:
+            coins.sort(by: { $0.currentPrice < $1.currentPrice })
+        }
+    }
+    
+    private func sortPortfolioCoinsIfNeeded(coins: [CoinsModel]) -> [CoinsModel] {
+        switch sortOption {
+        case .holding:
+            return coins.sorted(by: { $0.currentHoldingsValue > $1.currentHoldingsValue })
+        case .holdingReversed:
+            return coins.sorted(by: { $0.currentHoldingsValue < $1.currentHoldingsValue })
+        default:
+            return coins
+        }
+    }
+    
     
     private func mapGlobalMarketData(marketData: MarketDataModel?, portfolioCoins: [CoinsModel]) -> [StatisticModel] { //without adding portfolioCoins as a parameter to this map, portfolioCoins will not have any update cause it means we are not subscribing to @Published portfolioCoins
         //Good practice for mapping received data from the api
