@@ -82,8 +82,7 @@ Add UnitTests for all the VMs after finishing the app.
 Add UITests for all the Views
 
 On 10.09: 
-- Do the whole reloading logic.
-- Do the sorting 
+- Do the custom NavigationLink
 
 
 
