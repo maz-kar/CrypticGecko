@@ -11,8 +11,10 @@ struct DetailLoadingView: View { //Good practice to not go with Binding tricks l
     @Binding var coin: CoinsModel?
     
     var body: some View {
-        if let coin = coin {
-            DetailView(coin: coin)
+        NavigationView {
+            if let coin = coin {
+                DetailView(coin: coin)
+            }
         }
     }
 }
@@ -46,7 +48,6 @@ struct DetailView: View {
             .padding()
             .navigationTitle(vm.coin.name)
         }
-        
     }
 }
 
@@ -62,6 +63,7 @@ extension DetailView {
     private var overviewTitle: some View {
         Text("Overview")
             .font(.title)
+            .foregroundStyle(Color.theme.accentColor)
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -69,6 +71,7 @@ extension DetailView {
     private var additionalTitle: some View {
         Text("Additional Details")
             .font(.title)
+            .foregroundStyle(Color.theme.accentColor)
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -98,7 +101,3 @@ extension DetailView {
     }
     
 }
-
-
-
-
