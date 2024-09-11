@@ -14,10 +14,10 @@ struct StatisticModel: Identifiable, Codable {
     let value: String
     let precentageChange: Double?
     
-    init(title: String, value: String, precentageChange: Double? = nil) {
+    init(title: String, value: String, percentageChange: Double? = nil) {
         self.title = title
         self.value = value
-        self.precentageChange = precentageChange
+        self.precentageChange = percentageChange
     }
 }
 

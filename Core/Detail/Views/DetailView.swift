@@ -49,8 +49,8 @@ struct DetailView: View {
                           spacing: spacing,
                           pinnedViews: [],
                           content: {
-                    ForEach(0..<6) { _ in //For our data, we need the array of statistic model that we can loop on that we can throw them all in the statistic view.
-                        StatisticView(stat: StatisticModel(title: "Title", value: "Value"))
+                    ForEach(vm.overviewStatistics) { stat in //For our data, we need the array of statistic model that we can loop on that we can throw them all in the statistic view.
+                        StatisticView(stat: stat)
                     }
                 })
                 
@@ -66,8 +66,8 @@ struct DetailView: View {
                           spacing: spacing,
                           pinnedViews: [],
                           content: {
-                    ForEach(0..<6) { _ in
-                        StatisticView(stat: StatisticModel(title: "Title", value: "Value"))
+                    ForEach(vm.additionalStatistics) { stat in
+                        StatisticView(stat: stat)
                     }
                 })
                 

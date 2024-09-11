@@ -126,7 +126,7 @@ class HomeViewModel: ObservableObject, Observable {
         guard let data = marketData else {
             return stats
         }
-        let marketPlaceSection = StatisticModel(title: "Market Place", value: data.marketCap, precentageChange: data.marketCapChangePercentage24HUsd)
+        let marketPlaceSection = StatisticModel(title: "Market Place", value: data.marketCap, percentageChange: data.marketCapChangePercentage24HUsd)
         let volumeSection = StatisticModel(title: "24h Volume", value: data.volume)
         let btcDominanceSection = StatisticModel(title: "BTC Dominance", value: data.btcDominance)
         
@@ -148,7 +148,7 @@ class HomeViewModel: ObservableObject, Observable {
         let percentageChange = (portfolioValue - previousValue) / previousValue
         
         
-        let portfolioValueSection = StatisticModel(title: "Portfolio Value", value: portfolioValue.asCurrencyWith2Decimals(), precentageChange: percentageChange)
+        let portfolioValueSection = StatisticModel(title: "Portfolio Value", value: portfolioValue.asCurrencyWith2Decimals(), percentageChange: percentageChange)
         
         stats.append(contentsOf: [marketPlaceSection,volumeSection,btcDominanceSection,portfolioValueSection])
         return stats
