@@ -7,10 +7,11 @@
 
 import Foundation
 
-//URL: https://api.coingecko.com/api/v3/global
-//URL Response:
+
+//JSON Data
 /*
- 
+ //URL: https://api.coingecko.com/api/v3/global
+ //URL Response:
  {
    "data": {
      "total_market_cap": {
