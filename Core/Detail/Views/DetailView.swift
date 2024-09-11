@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
-    @Binding var coin: CoinsModel?
+    @Binding var coin: CoinsModel? //If not Binding, when selectedCoin changes, our DetailView will not be notified that it needs to change.
     
     init(coin: Binding<CoinsModel?>) {
         self._coin = coin
