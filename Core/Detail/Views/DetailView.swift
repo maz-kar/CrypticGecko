@@ -36,41 +36,12 @@ struct DetailView: View {
             VStack(spacing: 20) {
                 Text("")
                     .frame(height: 150)
-                
-                Text("Overview")
-                    .font(.title)
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
+                overviewTitle
                 Divider()
-                
-                LazyVGrid(columns: columns,
-                          alignment: .leading,
-                          spacing: spacing,
-                          pinnedViews: [],
-                          content: {
-                    ForEach(vm.overviewStatistics) { stat in //For our data, we need the array of statistic model that we can loop on that we can throw them all in the statistic view.
-                        StatisticView(stat: stat)
-                    }
-                })
-                
-                Text("Additional Details")
-                    .font(.title)
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
+                overviewGrid
+                additionalTitle
                 Divider()
-                
-                LazyVGrid(columns: columns,
-                          alignment: .leading,
-                          spacing: spacing,
-                          pinnedViews: [],
-                          content: {
-                    ForEach(vm.additionalStatistics) { stat in
-                        StatisticView(stat: stat)
-                    }
-                })
-                
+                additionGrid
             }
             .padding()
             .navigationTitle(vm.coin.name)
@@ -86,3 +57,48 @@ struct DetailView_Previews: PreviewProvider {
         }
     }
 }
+
+extension DetailView {
+    private var overviewTitle: some View {
+        Text("Overview")
+            .font(.title)
+            .bold()
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private var additionalTitle: some View {
+        Text("Additional Details")
+            .font(.title)
+            .bold()
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private var overviewGrid: some View {
+        LazyVGrid(columns: columns,
+                  alignment: .leading,
+                  spacing: spacing,
+                  pinnedViews: [],
+                  content: {
+            ForEach(vm.overviewStatistics) { stat in //For our data, we need the array of statistic model that we can loop on that we can throw them all in the statistic view.
+                StatisticView(stat: stat)
+            }
+        })
+    }
+    
+    private var additionGrid: some View {
+        LazyVGrid(columns: columns,
+                  alignment: .leading,
+                  spacing: spacing,
+                  pinnedViews: [],
+                  content: {
+            ForEach(vm.additionalStatistics) { stat in
+                StatisticView(stat: stat)
+            }
+        })
+    }
+    
+}
+
+
+
+
