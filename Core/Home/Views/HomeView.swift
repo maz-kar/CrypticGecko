@@ -12,38 +12,46 @@ struct HomeView: View {
     @State private var showPortfolio: Bool = false
     @State private var showPortfolioView: Bool = false
     
+    @State private var selectedCoin: CoinsModel? = nil //To catch the coin tapped coin
+    @State private var showDetailView: Bool = false //if true, navigate to destination DetailView
+    
     var body: some View {
-        ZStack {
-            Color.theme.backgroundColor
-                .ignoresSafeArea()
-                .sheet(isPresented: $showPortfolioView, content: {
-                    /*
-                     Our HomeView has the environment of HomeViewModel.
-                     But the .sheet's content is PortfolioView which is total new envorinment.
-                     If we want the environment object in our portfolio, we need to add it manually to environment of the PortfolioView
-                     */
-                    PortfolioView()
-                        .environment(vm)
-                })
-            VStack {
-                homeHeader
-                
-                HomeStatsView(showPortfolio: $showPortfolio)
-                
-                SearchBarView(searchText: $vm.searchText)
-                
-                columnTitles
-                
-                if !showPortfolio {
-                    allCoinsList
-                        .transition(.move(edge: .leading))
-                } else {
-                    portfolioCoinsList
-                        .transition(.move(edge: .trailing))
+        NavigationStack {
+            ZStack {
+                Color.theme.backgroundColor
+                    .ignoresSafeArea()
+                    .sheet(isPresented: $showPortfolioView, content: {
+                        /*
+                         Our HomeView has the environment of HomeViewModel.
+                         But the .sheet's content is PortfolioView which is total new envorinment.
+                         If we want the environment object in our portfolio, we need to add it manually to environment of the PortfolioView
+                         */
+                        PortfolioView()
+                            .environment(vm)
+                    })
+                VStack {
+                    homeHeader
+                    
+                    HomeStatsView(showPortfolio: $showPortfolio)
+                    
+                    SearchBarView(searchText: $vm.searchText)
+                    
+                    columnTitles
+                    
+                    if !showPortfolio {
+                        allCoinsList
+                            .transition(.move(edge: .leading))
+                    } else {
+                        portfolioCoinsList
+                            .transition(.move(edge: .trailing))
+                    }
+                    
+                    Spacer(minLength: 0)
                 }
-
-                Spacer(minLength: 0)
             }
+        }
+        .navigationDestination(isPresented: $showDetailView) {
+            DetailView(coin: $selectedCoin)
         }
     }
 }
@@ -119,8 +127,9 @@ extension HomeView {
         .listStyle(.plain)
     }
     
-    private func segue(coin: CoinsModel) {
-        
+    private func segue(coin: CoinsModel) { //if pressed in any coin, set the tapped coin to the selectedCoin AND trigger the showDetailView flag
+        selectedCoin = coin
+        showDetailView.toggle()
     }
     
     private var columnTitles: some View {
