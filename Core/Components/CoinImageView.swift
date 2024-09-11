@@ -10,7 +10,7 @@ import Combine
 
 struct CoinImageView: View {
     
-    @StateObject var viewModel: CoinImageViewModel
+    @StateObject private var viewModel: CoinImageViewModel
     
     init(coin: CoinsModel) {
         _viewModel = StateObject(wrappedValue: CoinImageViewModel(coin: coin))
