@@ -7,23 +7,33 @@
 
 import SwiftUI
 
-struct DetailView: View {
-    @Binding var coin: CoinsModel? //If not Binding, when selectedCoin changes, our DetailView will not be notified that it needs to change.
+struct DetailLoadingView: View { //Good practice to not go with Binding tricks like the last commit
+    @Binding var coin: CoinsModel?
     
-    init(coin: Binding<CoinsModel?>) {
-        self._coin = coin
-        print("Initializing Detail View for \(coin.wrappedValue?.name)")
+    var body: some View {
+        if let coin = coin {
+            DetailView(coin: coin)
+        }
+    }
+}
+
+struct DetailView: View {
+    let coin: CoinsModel //If not Binding, when selectedCoin changes, our DetailView will not be notified that it needs to change.
+    
+    init(coin: CoinsModel) {
+        self.coin = coin
+        print("Initializing Detail View for \(coin.name)")
     }
     
     var body: some View {
-        Text(coin?.name ?? "")
+        Text(coin.name)
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DetailView(coin: .constant(dev.coin))
+            DetailView(coin: dev.coin)
         }
     }
 }

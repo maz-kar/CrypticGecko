@@ -50,8 +50,9 @@ struct HomeView: View {
                 }
             }
         }
-        .navigationDestination(isPresented: $showDetailView) {
-            DetailView(coin: $selectedCoin)
+        .navigationDestination(isPresented: $showDetailView) { 
+            //Great practice for segue to another view.Recipe:use 2 @State var,use a navigationDestination which will be activated when we update those two @State vars.
+            DetailLoadingView(coin: $selectedCoin)
         }
     }
 }
