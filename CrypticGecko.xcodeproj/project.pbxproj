@@ -18,6 +18,8 @@
 		6B2ED5F02B729F0E00529A1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B2ED5EF2B729F0E00529A1F /* Preview Assets.xcassets */; };
 		6B387A682C04608E00B3D958 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B387A672C04608E00B3D958 /* LocalFileManager.swift */; };
 		6B5252232C8F4B8200B37E3B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5252222C8F4B8200B37E3B /* DetailView.swift */; };
+		6B52522B2C8F883200B37E3B /* CrypticGeckoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52522A2C8F883200B37E3B /* CrypticGeckoTests.swift */; };
+		6B5252322C8F886100B37E3B /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5252312C8F886100B37E3B /* HomeViewModelTest.swift */; };
 		6B6A91CC2BC44848000EFD0F /* CoinsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A91CB2BC44848000EFD0F /* CoinsRowView.swift */; };
 		6B6A91CE2BC44D8B000EFD0F /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A91CD2BC44D8B000EFD0F /* PreviewProvider.swift */; };
 		6B6A91D02BC45A72000EFD0F /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A91CF2BC45A72000EFD0F /* Double.swift */; };
@@ -45,6 +47,16 @@
 		6BF5063D2C7858E0001DF504 /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF5063C2C7858DF001DF504 /* MarketDataService.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6B52522C2C8F883200B37E3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B2ED5DD2B729F0D00529A1F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B2ED5E42B729F0D00529A1F;
+			remoteInfo = CrypticGecko;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		6B14C5BF2B99C2C800BBED30 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		6B14C5C12B99C2D600BBED30 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -58,6 +70,9 @@
 		6B2ED5EF2B729F0E00529A1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6B387A672C04608E00B3D958 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		6B5252222C8F4B8200B37E3B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		6B5252282C8F883200B37E3B /* CrypticGeckoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrypticGeckoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B52522A2C8F883200B37E3B /* CrypticGeckoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrypticGeckoTests.swift; sourceTree = "<group>"; };
+		6B5252312C8F886100B37E3B /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
 		6B6A91CB2BC44848000EFD0F /* CoinsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsRowView.swift; sourceTree = "<group>"; };
 		6B6A91CD2BC44D8B000EFD0F /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		6B6A91CF2BC45A72000EFD0F /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
@@ -87,6 +102,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		6B2ED5E22B729F0D00529A1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B5252252C8F883200B37E3B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -127,6 +149,7 @@
 				6B2326B02BAED2C8003E6CFE /* Models */,
 				6BF46CA72B827BC70097DF37 /* Extensions */,
 				6B2ED5E72B729F0D00529A1F /* CrypticGecko */,
+				6B5252292C8F883200B37E3B /* CrypticGeckoTests */,
 				6B2ED5E62B729F0D00529A1F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				6B2ED5E52B729F0D00529A1F /* CrypticGecko.app */,
+				6B5252282C8F883200B37E3B /* CrypticGeckoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,6 +203,15 @@
 			children = (
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6B5252292C8F883200B37E3B /* CrypticGeckoTests */ = {
+			isa = PBXGroup;
+			children = (
+				6B52522A2C8F883200B37E3B /* CrypticGeckoTests.swift */,
+				6B5252312C8F886100B37E3B /* HomeViewModelTest.swift */,
+			);
+			path = CrypticGeckoTests;
 			sourceTree = "<group>";
 		};
 		6B7A90542BE7F31E0074B13C /* Utilities */ = {
@@ -287,6 +320,24 @@
 			productReference = 6B2ED5E52B729F0D00529A1F /* CrypticGecko.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6B5252272C8F883200B37E3B /* CrypticGeckoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B5252302C8F883200B37E3B /* Build configuration list for PBXNativeTarget "CrypticGeckoTests" */;
+			buildPhases = (
+				6B5252242C8F883200B37E3B /* Sources */,
+				6B5252252C8F883200B37E3B /* Frameworks */,
+				6B5252262C8F883200B37E3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6B52522D2C8F883200B37E3B /* PBXTargetDependency */,
+			);
+			name = CrypticGeckoTests;
+			productName = CrypticGeckoTests;
+			productReference = 6B5252282C8F883200B37E3B /* CrypticGeckoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -294,11 +345,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1520;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					6B2ED5E42B729F0D00529A1F = {
 						CreatedOnToolsVersion = 15.2;
+					};
+					6B5252272C8F883200B37E3B = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 6B2ED5E42B729F0D00529A1F;
 					};
 				};
 			};
@@ -316,6 +371,7 @@
 			projectRoot = "";
 			targets = (
 				6B2ED5E42B729F0D00529A1F /* CrypticGecko */,
+				6B5252272C8F883200B37E3B /* CrypticGeckoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -328,6 +384,13 @@
 				6BA1E6222BF723E6000E22BF /* README.md in Resources */,
 				6B2ED5F02B729F0E00529A1F /* Preview Assets.xcassets in Resources */,
 				6B2ED5ED2B729F0E00529A1F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B5252262C8F883200B37E3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +437,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6B5252242C8F883200B37E3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B52522B2C8F883200B37E3B /* CrypticGeckoTests.swift in Sources */,
+				6B5252322C8F886100B37E3B /* HomeViewModelTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6B52522D2C8F883200B37E3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6B2ED5E42B729F0D00529A1F /* CrypticGecko */;
+			targetProxy = 6B52522C2C8F883200B37E3B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6B2ED5F12B729F0E00529A1F /* Debug */ = {
@@ -558,6 +638,44 @@
 			};
 			name = Release;
 		};
+		6B52522E2C8F883200B37E3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LU756Z7J5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maziarlayeghkar.CrypticGeckoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrypticGecko.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CrypticGecko";
+			};
+			name = Debug;
+		};
+		6B52522F2C8F883200B37E3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LU756Z7J5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maziarlayeghkar.CrypticGeckoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrypticGecko.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CrypticGecko";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -575,6 +693,15 @@
 			buildConfigurations = (
 				6B2ED5F42B729F0E00529A1F /* Debug */,
 				6B2ED5F52B729F0E00529A1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6B5252302C8F883200B37E3B /* Build configuration list for PBXNativeTarget "CrypticGeckoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B52522E2C8F883200B37E3B /* Debug */,
+				6B52522F2C8F883200B37E3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
