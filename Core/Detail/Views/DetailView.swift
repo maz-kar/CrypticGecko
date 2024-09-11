@@ -18,15 +18,15 @@ struct DetailLoadingView: View { //Good practice to not go with Binding tricks l
 }
 
 struct DetailView: View {
-    let coin: CoinsModel //If not Binding, when selectedCoin changes, our DetailView will not be notified that it needs to change.
+    @StateObject var vm: DetailViewModel //Good practice to deal with @StateObject var when the ViewModel needs a parameter in the time of being created.
     
     init(coin: CoinsModel) {
-        self.coin = coin
+        _vm = StateObject(wrappedValue: DetailViewModel(coin: coin))
         print("Initializing Detail View for \(coin.name)")
     }
     
     var body: some View {
-        Text(coin.name)
+        Text("Hello")
     }
 }
 
