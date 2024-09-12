@@ -21,6 +21,8 @@ struct DetailLoadingView: View { //Good practice to not go with Binding tricks l
 
 struct DetailView: View {
     @StateObject private var vm: DetailViewModel //Good practice to deal with @StateObject var when the ViewModel needs a parameter in the time of being created.
+    @State var showFullDescription: Bool = false
+    
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -41,22 +43,7 @@ struct DetailView: View {
                 VStack(spacing: 20) {
                     overviewTitle
                     Divider()
-                    
-                    ZStack {
-                        if let coinDescription = vm.coinDescription,
-                           !coinDescription.isEmpty {
-                            VStack(alignment: .leading) {
-                                Text(coinDescription)
-                                    .lineLimit(3)
-                                Button(action: {
-                                    
-                                }, label: {
-                                    Text("Read more...")
-                                })
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                    }
+                    descriptionSection
                     overviewGrid
                     additionalTitle
                     Divider()
@@ -123,6 +110,31 @@ extension DetailView {
                 StatisticView(stat: stat)
             }
         })
+    }
+    
+    private var descriptionSection: some View {
+        ZStack {
+            if let coinDescription = vm.coinDescription,
+               !coinDescription.isEmpty {
+                VStack(alignment: .leading) {
+                    Text(coinDescription)
+                        .lineLimit(showFullDescription ? nil : 3)
+                        .font(.callout)
+                        .foregroundStyle(Color.theme.secondaryTextColor)
+                    Button(action: {
+                        withAnimation(.easeInOut) {
+                            showFullDescription.toggle()
+                        }
+                    }, label: {
+                        Text(showFullDescription ? "Less" : "Read more...")
+                            .font(.caption)
+                            .padding(.vertical, 4)
+                    })
+                    .accentColor(.blue)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
     }
     
 }
