@@ -25,6 +25,7 @@ struct ChartView: View {
     
     var body: some View {
         chartView
+            .frame(height: 200)
     }
 }
 
