@@ -26,6 +26,15 @@ struct ChartView: View {
     var body: some View {
         chartView
             .frame(height: 200)
+            .background(
+                VStack {
+                    Divider()
+                    Spacer()
+                    Divider()
+                    Spacer()
+                    Divider()
+                }
+            )
     }
 }
 
