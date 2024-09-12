@@ -71,7 +71,7 @@ extension PortfolioView {
                         .background( //This is the background of the frame of each coin
                             RoundedRectangle(cornerRadius: 10)
                             //IMPORTANT: it wont work with selectedCoin == coin. Using .id will make both sides equatable
-                                .stroke(selectedCoin?.id == coin.id ? Color.theme.greenColor : Color.clear
+                                .stroke(selectedCoin?.id == coin.id ? Color.theme.green : Color.clear
                                         , lineWidth: 1.0) //This stroke has content and lineWidth.
                         )
                 }

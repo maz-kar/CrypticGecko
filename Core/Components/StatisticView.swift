@@ -29,7 +29,7 @@ struct StatisticView: View {
                     .font(.caption)
                     .bold()
             }
-            .foregroundStyle((stat.precentageChange ?? 0) >= 0 ? Color.theme.greenColor : Color.theme.redColor)
+            .foregroundStyle((stat.precentageChange ?? 0) >= 0 ? Color.theme.green : Color.theme.red)
             //To keep the height of the frame constant, we make opacity 0, if there is no percentage
             .opacity((stat.precentageChange == nil) ? 0.0 : 1.0)
         }
