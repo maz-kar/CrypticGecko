@@ -77,13 +77,23 @@ For organizing purposes, remember to save the entity file in Model folder as it'
 4. Transfer all NOT view related data to a ViewModel.
 5. Finally call the View of 3rd step inside the final View of the app.
 
+##Line Chart
+
+###Steps:
+First of all, we need to get some data that we can put into our chart.
+In our CoinsModel, we get sparklineIn7D from the coingecko api, which actually gives us an array of Double.
+By looking at the JSON response for the sparklineIn7D, we notice different range of doubles for different coins.
+So we need to create our char to be dynamic because due to the different range of numbers mentioned above, each chart has different Y axis.
+For exp. in BTC sparklineIn7D.price is around 50000 to 60000 but this price for ETH is between 2500 to 3500.
+
+
+
 ## TODO
 Add UnitTests for all the VMs after finishing the app.
 Add UITests for all the Views
 
-On 10.09: 
-- Do the custom NavigationLink
-
+On 12.09: 
+- Continue with Line Chart #21
 
 
 
