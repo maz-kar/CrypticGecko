@@ -12,6 +12,8 @@ struct ChartView: View {
     let minY: Double
     let maxY: Double
     let lineColor: Color
+    let startingDate: Date
+    let endingDate: Date
     
     init(coin: CoinModel) {
         self.data = coin.sparklineIn7D?.price ?? []
@@ -21,22 +23,24 @@ struct ChartView: View {
         //To check if the graph is a + or -
         let priceChange = (data.last ?? 0) - (data.first ?? 0)
         self.lineColor = priceChange > 0 ? Color.theme.green : Color.theme.red
+        
+        endingDate = Date(coinGeckoString: coin.lastUpdated ?? "")
+        startingDate = endingDate.addingTimeInterval(-7*24*60*60)
     }
     
     var body: some View {
-        chartView
-            .frame(height: 200)
-            .background(charBackground)
-            .overlay(chartYAxis, alignment: .leading)
-    }
-}
-
-struct ChartView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            ChartView(coin: dev.coin)
-            //.frame(width: 200)
+        VStack {
+            chartView
+                .frame(height: 200)
+                .background(charBackground)
+                .overlay(chartYAxis, alignment: .leading)
+            HStack {
+                Text(startingDate.asShortDateString())
+                Spacer()
+                Text(endingDate.asShortDateString())
+            }
         }
+        
     }
 }
 
@@ -89,6 +93,15 @@ extension ChartView {
             Text(((maxY + minY) / 2).formattedWithAbbreviations())
             Spacer()
             Text(minY.formattedWithAbbreviations())
+        }
+    }
+}
+
+struct ChartView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            ChartView(coin: dev.coin)
+            //.frame(width: 200)
         }
     }
 }
