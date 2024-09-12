@@ -33,12 +33,12 @@ struct ChartView: View {
                     let xPosition = (geometry.size.width / CGFloat(data.count)) * CGFloat(index + 1)
                     
                     let yAxis = maxY - minY
-                    let yPosition = (CGFloat((data[index] - minY) / yAxis) * geometry.size.height)
+                    let yPosition = (1 - CGFloat((data[index] - minY) / yAxis)) * geometry.size.height
                     
                     
                     //if we are in the 1st loop, let's move the pointer to where we want to start
                     if index == 0 {
-                        path.move(to: CGPoint(x: 0, y: 0))
+                        path.move(to: CGPoint(x: xPosition, y: yPosition))
                     }
                     path.addLine(to: CGPoint(x: xPosition, y: yPosition))
                 }
