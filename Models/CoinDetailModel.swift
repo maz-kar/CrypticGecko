@@ -35,6 +35,10 @@ struct CoinDetailModel: Codable {
     let hashingAlgorithm: String?
     let description: Description?
     let links: Links?
+    
+    var readableDescription: String? {
+        return description?.en?.removingHTMLOccurance
+    }
 }
 
 struct Links: Codable {
