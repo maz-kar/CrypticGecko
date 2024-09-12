@@ -101,7 +101,14 @@ Then we need to find the distance between dataPoint and bottom (minY):
 distanceFromBottom = 52,000 - 50,000 = 2,000 off the bottom.
 Also the maximum distance between the bottom and top is: 10,000
 2,000 / 10,000 = 20% Then we know that this specific dataPoint must be 20% off of the bottom of our screen.
- 
+For width we needed to know the width of the screen for the x position by geometry.size.width
+For yPosition we need to know the height of the screen by geometry.size.height.
+
+Then we can addline by path.addLine for x and y points.
+Remember as (0,0) coordinate is on top left in iPhone, therefore it is reversed for exp. if 0,0 is on top left, 1000, 1000 will be in the bottom. 
+Showing this for line charts seems inaccurate data. Therefore, we need to flip it.
+
+We also need to change the color of the line dynamically green (+) or red (-). For this purpose we need to subtract the last data point from the first one. If the number is > 0 color.green : color.red.
 
 
 
