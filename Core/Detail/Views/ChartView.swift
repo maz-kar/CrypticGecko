@@ -24,6 +24,21 @@ struct ChartView: View {
     }
     
     var body: some View {
+        chartView
+    }
+}
+
+struct ChartView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            ChartView(coin: dev.coin)
+            //.frame(width: 200)
+        }
+    }
+}
+
+extension ChartView {
+    private var chartView: some View {
         GeometryReader { geometry in
             VStack() {
                 Path { path in
@@ -51,15 +66,6 @@ struct ChartView: View {
                 }
                 .stroke(lineColor, style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
             }
-        }
-    }
-}
-
-struct ChartView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            ChartView(coin: dev.coin)
-            //.frame(width: 200)
         }
     }
 }
