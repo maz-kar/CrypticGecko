@@ -22,7 +22,6 @@ struct CoinImageView: View {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 30, height: 30)
             } else if viewModel.isLoading {
                 ProgressView()
             } else {
