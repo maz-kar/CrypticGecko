@@ -34,13 +34,11 @@ struct ChartView: View {
                 .frame(height: 200)
                 .background(charBackground)
                 .overlay(chartYAxis, alignment: .leading)
-            HStack {
-                Text(startingDate.asShortDateString())
-                Spacer()
-                Text(endingDate.asShortDateString())
-            }
+            
+            charDateLabels
         }
-        
+        .font(.caption)
+        .foregroundStyle(Color.theme.secondaryTextColor)
     }
 }
 
@@ -93,6 +91,14 @@ extension ChartView {
             Text(((maxY + minY) / 2).formattedWithAbbreviations())
             Spacer()
             Text(minY.formattedWithAbbreviations())
+        }
+    }
+    
+    private var charDateLabels: some View {
+        HStack {
+            Text(startingDate.asShortDateString())
+            Spacer()
+            Text(endingDate.asShortDateString())
         }
     }
 }
