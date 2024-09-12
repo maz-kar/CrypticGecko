@@ -80,11 +80,31 @@ For organizing purposes, remember to save the entity file in Model folder as it'
 ##Line Chart
 
 ###Steps:
+1. Data:
 First of all, we need to get some data that we can put into our chart.
 In our CoinsModel, we get sparklineIn7D from the coingecko api, which actually gives us an array of Double.
 By looking at the JSON response for the sparklineIn7D, we notice different range of doubles for different coins.
 So we need to create our char to be dynamic because due to the different range of numbers mentioned above, each chart has different Y axis.
 For exp. in BTC sparklineIn7D.price is around 50000 to 60000 but this price for ETH is between 2500 to 3500.
+
+2. Path:
+Then we need a path which is an outline of a 2D shape. For this path we need x and y coordinate of each coin.
+xPoint will be the full width of the screen.
+But in order to have a more dynamic width which can be manipulated by padding etc. we need to embed the Path in a Geometry reader.
+
+The harder part is for getting the yPosition, cause we need first to convert our prices (y axis) into y coordinates in our graph.
+At first we need to define our min & max y that we need in our graph. This can come from data array and its min & max api.
+Also we need yAxis which is maxY - minY. for exp. if we have 60000 & 50000, yAxis must be 10000 possible data point between min & max.
+After defining the yAxis, we need to find the specific data point. For exp:
+maxY = 60,000, minY = 50,000, dataPoint = 52,000
+Then we need to find the distance between dataPoint and bottom (minY):
+distanceFromBottom = 52,000 - 50,000 = 2,000 off the bottom.
+Also the maximum distance between the bottom and top is: 10,000
+2,000 / 10,000 = 20% Then we know that this specific dataPoint must be 20% off of the bottom of our screen.
+ 
+
+
+
 
 
 
