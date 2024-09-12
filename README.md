@@ -112,9 +112,6 @@ We also need to change the color of the line dynamically green (+) or red (-). F
 
 
 
-
-
-
 ## TODO
 Add UnitTests for all the VMs after finishing the app.
 Add UITests for all the Views
