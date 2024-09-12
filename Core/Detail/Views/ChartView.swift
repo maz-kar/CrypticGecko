@@ -34,9 +34,10 @@ struct ChartView: View {
             chartView
                 .frame(height: 200)
                 .background(charBackground)
-                .overlay(chartYAxis, alignment: .leading)
+                .overlay(chartYAxis.padding(.horizontal, 4), alignment: .leading)
             
             charDateLabels
+                .padding(.horizontal, 4)
         }
         .font(.caption)
         .foregroundStyle(Color.theme.secondaryTextColor)
