@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ChartView: View {
     let data: [Double]
+    let minY: Double
+    let maxY: Double
     
     init(coin: CoinModel) {
         self.data = coin.sparklineIn7D?.price ?? []
+        self.minY = data.min() ?? 0
+        self.maxY = data.max() ?? 0
     }
     
     var body: some View {
@@ -27,6 +31,9 @@ struct ChartView: View {
                     so our x will go all the way from 3 to 300
                     */
                     let xPosition = (geometry.size.width / CGFloat(data.count)) * CGFloat(index + 1)
+                    
+                    let yAxis = maxY - minY
+                    let yPosition = (data[index] - minY) / yAxis
                     
                     //if we are in the 1st loop, let's move the pointer to where we want to start
                     if index == 0 {
