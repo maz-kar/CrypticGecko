@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailLoadingView: View { //Good practice to not go with Binding tricks like the last commit
-    @Binding var coin: CoinsModel?
+    @Binding var coin: CoinModel?
     
     var body: some View {
         NavigationView {
@@ -29,7 +29,7 @@ struct DetailView: View {
     private let spacing: CGFloat = 30
     
     
-    init(coin: CoinsModel) {
+    init(coin: CoinModel) {
         _vm = StateObject(wrappedValue: DetailViewModel(coin: coin))
     }
     

@@ -11,14 +11,14 @@ import Combine
 class DetailViewModel: ObservableObject {
     @Published var overviewStatistics: [StatisticModel] = []
     @Published var additionalStatistics: [StatisticModel] = []
-    @Published var coin: CoinsModel
+    @Published var coin: CoinModel
     
     private let coinDetailsDataService: CoinDetailDataService //Good practice to now define extra let coin
     private var cancellables = Set<AnyCancellable>()
     
     
     
-    init(coin: CoinsModel) {
+    init(coin: CoinModel) {
         self.coin = coin
         self.coinDetailsDataService = CoinDetailDataService(coin: coin)
         self.addSubscribers()
@@ -36,13 +36,13 @@ class DetailViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    private func mapDataToStatistics(coinDetailModel: CoinDetailModel?, coinModel: CoinsModel) -> (overview: [StatisticModel], addition: [StatisticModel]) {
+    private func mapDataToStatistics(coinDetailModel: CoinDetailModel?, coinModel: CoinModel) -> (overview: [StatisticModel], addition: [StatisticModel]) {
         let overviewArray = createOverviewArray(coinModel: coinModel)
         let additionalArray = createAdditionArray(coinModel: coinModel, coinDetailModel: coinDetailModel)
         return (overviewArray,additionalArray)
     }
     
-    private func createOverviewArray(coinModel: CoinsModel) -> [StatisticModel] {
+    private func createOverviewArray(coinModel: CoinModel) -> [StatisticModel] {
         let price = coinModel.currentPrice.asCurrencyWith6Decimals()
         let pricePercentChange = coinModel.priceChangePercentage24H
         let priceStat = StatisticModel(title: "Current Price", value: price, percentageChange: pricePercentChange)
@@ -62,7 +62,7 @@ class DetailViewModel: ObservableObject {
         return overviewArray
     }
     
-    private func createAdditionArray(coinModel: CoinsModel, coinDetailModel: CoinDetailModel?) -> [StatisticModel] {
+    private func createAdditionArray(coinModel: CoinModel, coinDetailModel: CoinDetailModel?) -> [StatisticModel] {
         let high = coinModel.high24H?.asCurrencyWith6Decimals() ?? "n/a"
         let highStat = StatisticModel(title: "24h High", value: high)
         

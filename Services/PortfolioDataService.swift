@@ -27,7 +27,7 @@ class PortfolioDataService {
     
     //MARK: Public
     
-    func updatePortfolio(coin: CoinsModel, amount: Double) {
+    func updatePortfolio(coin: CoinModel, amount: Double) {
         //Checks if coin is already in portfolio
         if let entity = savedEntities.first(where: { $0.coinID == coin.id }) {
             if amount > 0 { //if put any amount except 0, we want to update.
@@ -52,7 +52,7 @@ class PortfolioDataService {
         }
     }
     
-    private func add(coin: CoinsModel, amount: Double) {
+    private func add(coin: CoinModel, amount: Double) {
         let newItem = PortfolioEntity(context: container.viewContext)
         newItem.coinID = coin.id
         newItem.amount = amount

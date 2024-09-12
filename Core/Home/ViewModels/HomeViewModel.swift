@@ -10,8 +10,8 @@ import SwiftUI
 import Combine
 
 class HomeViewModel: ObservableObject, Observable {
-    @Published var allCoins: [CoinsModel] = []
-    @Published var portfolioCoins: [CoinsModel] = []
+    @Published var allCoins: [CoinModel] = []
+    @Published var portfolioCoins: [CoinModel] = []
     @Published var statistics: [StatisticModel] = []
     @Published var searchText: String = ""
     @Published var isLoading: Bool = false
@@ -72,18 +72,18 @@ class HomeViewModel: ObservableObject, Observable {
         HapticManager.notification(type: .success)
     }
     
-    func updatePortfolio(coin: CoinsModel, amount: Double) {
+    func updatePortfolio(coin: CoinModel, amount: Double) {
         portfolioDataService.updatePortfolio(coin: coin, amount: amount)
     }
     
-    private func filteredAndSortCoins(text: String, coins: [CoinsModel], sort: SortOption) -> [CoinsModel] {
+    private func filteredAndSortCoins(text: String, coins: [CoinModel], sort: SortOption) -> [CoinModel] {
         var updatedCoins = filterCoins(text: text, coins: coins)
         sortCoins(sort: sort, coins: &updatedCoins)
 
         return updatedCoins
     }
     
-    private func filterCoins(text: String, coins: [CoinsModel]) -> [CoinsModel] {
+    private func filterCoins(text: String, coins: [CoinModel]) -> [CoinModel] {
         guard !text.isEmpty else {
             return coins
         }
@@ -94,7 +94,7 @@ class HomeViewModel: ObservableObject, Observable {
         }
     }
     
-    private func sortCoins(sort: SortOption, coins: inout [CoinsModel]) { //Since we are inputting an array of CoinsModel and outputting the exact same thing, we can take the array and sort it in place and return it back out of the func
+    private func sortCoins(sort: SortOption, coins: inout [CoinModel]) { //Since we are inputting an array of CoinsModel and outputting the exact same thing, we can take the array and sort it in place and return it back out of the func
         switch sort {
         case .rank, .holding: //We add holding and its reversed also here cause here we dont care about them and for now, this is the only way to get rid of "Switch must be exhaustive".
             coins.sort(by: { $0.rank < $1.rank }) //sort unlike the sortedBy, is doing the sorting IN PLACE, which is exactly what we want from inout
@@ -107,7 +107,7 @@ class HomeViewModel: ObservableObject, Observable {
         }
     }
     
-    private func sortPortfolioCoinsIfNeeded(coins: [CoinsModel]) -> [CoinsModel] {
+    private func sortPortfolioCoinsIfNeeded(coins: [CoinModel]) -> [CoinModel] {
         switch sortOption {
         case .holding:
             return coins.sorted(by: { $0.currentHoldingsValue > $1.currentHoldingsValue })
@@ -119,7 +119,7 @@ class HomeViewModel: ObservableObject, Observable {
     }
     
     
-    private func mapGlobalMarketData(marketData: MarketDataModel?, portfolioCoins: [CoinsModel]) -> [StatisticModel] { //without adding portfolioCoins as a parameter to this map, portfolioCoins will not have any update cause it means we are not subscribing to @Published portfolioCoins
+    private func mapGlobalMarketData(marketData: MarketDataModel?, portfolioCoins: [CoinModel]) -> [StatisticModel] { //without adding portfolioCoins as a parameter to this map, portfolioCoins will not have any update cause it means we are not subscribing to @Published portfolioCoins
         //Good practice for mapping received data from the api
         var stats: [StatisticModel] = []
         
@@ -154,10 +154,10 @@ class HomeViewModel: ObservableObject, Observable {
         return stats
     }
     
-    private func mapAllCoinsToPortfolioCoins(allCoins: [CoinsModel], portfolioEntities: [PortfolioEntity]) -> [CoinsModel] {
+    private func mapAllCoinsToPortfolioCoins(allCoins: [CoinModel], portfolioEntities: [PortfolioEntity]) -> [CoinModel] {
         allCoins
         //we use compactMap cause it can return nil and for the coins that are not needed in portfolioEntities we then return nil
-            .compactMap { coin -> CoinsModel? in
+            .compactMap { coin -> CoinModel? in
                 guard let entity = portfolioEntities.first(where: { $0.coinID == coin.id }) else {
                     return nil
                 }

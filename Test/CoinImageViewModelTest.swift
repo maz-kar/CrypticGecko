@@ -17,9 +17,9 @@ class CoinImageViewModelTest: ObservableObject {
     private let dataService: CoinImageServiceTest
     private var cancellables = Set<AnyCancellable>()
     
-    let coin: CoinsModel
+    let coin: CoinModel
     
-    init(coin: CoinsModel) {
+    init(coin: CoinModel) {
         self.coin = coin
         self.dataService = CoinImageServiceTest(coin: coin)
         self.isLoading = true

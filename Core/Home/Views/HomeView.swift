@@ -12,7 +12,7 @@ struct HomeView: View {
     @State private var showPortfolio: Bool = false
     @State private var showPortfolioView: Bool = false
     
-    @State private var selectedCoin: CoinsModel? = nil //To catch the coin tapped coin
+    @State private var selectedCoin: CoinModel? = nil //To catch the coin tapped coin
     @State private var showDetailView: Bool = false //if true, navigate to destination DetailView
     
     var body: some View {
@@ -128,7 +128,7 @@ extension HomeView {
         .listStyle(.plain)
     }
     
-    private func segue(coin: CoinsModel) { //if pressed in any coin, set the tapped coin to the selectedCoin AND trigger the showDetailView flag
+    private func segue(coin: CoinModel) { //if pressed in any coin, set the tapped coin to the selectedCoin AND trigger the showDetailView flag
         selectedCoin = coin
         showDetailView.toggle()
     }

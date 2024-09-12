@@ -10,7 +10,7 @@ import SwiftUI
 struct PortfolioView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var vm: HomeViewModel
-    @State private var selectedCoin: CoinsModel? = nil
+    @State private var selectedCoin: CoinModel? = nil
     @State private var quantityText: String = ""
     @State private var showCheckMark: Bool = false
     
@@ -81,7 +81,7 @@ extension PortfolioView {
         })
     }
     
-    private func updateSelectedCoin(coin: CoinsModel) {
+    private func updateSelectedCoin(coin: CoinModel) {
         selectedCoin = coin
         //Checks if coin exists in portfolio list
         if let portfolioCoin = vm.portfolioCoins.first(where: { $0.id == coin.id }),

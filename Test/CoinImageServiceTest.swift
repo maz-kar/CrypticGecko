@@ -13,13 +13,13 @@ class CoinImageServiceTest {
     
     @Published var image: UIImage? = nil
     
-    private let coin: CoinsModel
+    private let coin: CoinModel
     private var imageSubscriptions: AnyCancellable?
     private let fileManager = LocalFileManagerTest.instance
     private let folderName = "coins"
     private let imageName: String
     
-    init(coin: CoinsModel) {
+    init(coin: CoinModel) {
         self.coin = coin
         self.imageName = coin.id
         

@@ -9,17 +9,17 @@ import Foundation
 import Combine
 
 class CoinDetailDataService {
-    let coin: CoinsModel
+    let coin: CoinModel
     
     @Published var coinDetails: CoinDetailModel? = nil
     var coinDetailSubscription: AnyCancellable?
     
-    init(coin: CoinsModel) {
+    init(coin: CoinModel) {
         self.coin = coin
         getCoinDetails(coin: coin)
     }
     
-    func getCoinDetails(coin: CoinsModel) {
+    func getCoinDetails(coin: CoinModel) {
         let decoderData = JSONDecoder()
         decoderData.keyDecodingStrategy = .convertFromSnakeCase
         guard let url = URL(string: "https://api.coingecko.com/api/v3/coins/\(coin.id)?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false") else { return }
