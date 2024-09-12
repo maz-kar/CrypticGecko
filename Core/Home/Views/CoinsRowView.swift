@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CoinsRowView: View {
-    let coin: CoinsModel
+    let coin: CoinModel
     var showHoldingsColumn: Bool
     
     var body: some View {
@@ -52,6 +52,7 @@ extension CoinsRowView {
                 .frame(minWidth: 30)
             
             CoinImageView(coin: coin)
+                .frame(width: 25, height: 25)
             
             Text("\(coin.symbol.uppercased())")
                 .font(.headline)
