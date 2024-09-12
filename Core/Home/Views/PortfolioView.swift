@@ -46,13 +46,6 @@ struct PortfolioView: View {
     }
 }
 
-struct PortfolioView_Previews: PreviewProvider {
-    static var previews: some View {
-        PortfolioView()
-            .environmentObject(dev.homeVM)
-    }
-}
-
 extension PortfolioView {
     
     private var coinLogoList: some View {
@@ -175,4 +168,11 @@ extension PortfolioView {
         vm.searchText = ""
     }
     
+}
+
+struct PortfolioView_Previews: PreviewProvider {
+    static var previews: some View {
+        PortfolioView()
+            .environmentObject(dev.homeVM)
+    }
 }

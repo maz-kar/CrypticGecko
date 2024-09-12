@@ -56,14 +56,6 @@ struct DetailView: View {
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            DetailView(coin: dev.coin)
-        }
-    }
-}
-
 extension DetailView {
     private var topBarTrailingItem: some View {
         HStack {
@@ -115,4 +107,12 @@ extension DetailView {
         })
     }
     
+}
+
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            DetailView(coin: dev.coin)
+        }
+    }
 }

@@ -30,18 +30,6 @@ struct CoinsRowView: View {
     }
 }
 
-struct CoinsRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            CoinsRowView(coin: dev.coin, showHoldingsColumn: true)
-                .previewLayout(.sizeThatFits)
-            CoinsRowView(coin: dev.coin, showHoldingsColumn: true)
-                .previewLayout(.sizeThatFits)
-                .preferredColorScheme(.dark)
-        }
-    }
-}
-
 extension CoinsRowView {
     
     private var leftColumn: some View {
@@ -79,5 +67,17 @@ extension CoinsRowView {
                 .foregroundStyle((coin.priceChangePercentage24H ?? 0 >= 0) ? Color.theme.green : Color.theme.red)
         }
         .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+    }
+}
+
+struct CoinsRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            CoinsRowView(coin: dev.coin, showHoldingsColumn: true)
+                .previewLayout(.sizeThatFits)
+            CoinsRowView(coin: dev.coin, showHoldingsColumn: true)
+                .previewLayout(.sizeThatFits)
+                .preferredColorScheme(.dark)
+        }
     }
 }

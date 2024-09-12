@@ -57,16 +57,6 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            HomeView()
-                .toolbar(.hidden)
-        }
-        .environmentObject(dev.homeVM)
-    }
-}
-
 extension HomeView {
     private var homeHeader: some View {
         HStack() {
@@ -187,5 +177,15 @@ extension HomeView {
         .padding(.horizontal)
         .font(.caption)
         .foregroundStyle(Color.theme.secondaryTextColor)
+    }
+}
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            HomeView()
+                .toolbar(.hidden)
+        }
+        .environmentObject(dev.homeVM)
     }
 }
