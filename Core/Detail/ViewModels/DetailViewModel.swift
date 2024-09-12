@@ -16,19 +16,19 @@ class DetailViewModel: ObservableObject {
     @Published var websiteURL: String? = nil
     @Published var redditURL: String? = nil
     
-    private let coinDetailsDataService: CoinDetailDataService //Good practice to now define extra let coin
+    private let coinDetailService: CoinDetailDataService //Good practice to now define extra let coin
     private var cancellables = Set<AnyCancellable>()
     
     
     
     init(coin: CoinModel) {
         self.coin = coin
-        self.coinDetailsDataService = CoinDetailDataService(coin: coin)
+        self.coinDetailService = CoinDetailDataService(coin: coin)
         self.addSubscribers()
     }
     
     private func addSubscribers() {
-        coinDetailsDataService.$coinDetails
+        coinDetailService.$coinDetails
             .combineLatest($coin)
             .map(mapDataToStatistics)
             .sink { [weak self] returnedArrays in
@@ -37,7 +37,7 @@ class DetailViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        coinDetailsDataService.$coinDetails
+        coinDetailService.$coinDetails
             .sink { [weak self] returnedCoinDetails in
                 self?.coinDescription = returnedCoinDetails?.description?.en
                 self?.websiteURL = returnedCoinDetails?.links?.homepage?.first
