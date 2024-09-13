@@ -33,6 +33,7 @@ class NetworkingManager {
         return URLSession.shared.dataTaskPublisher(for: url)
             //.subscribe(on: DispatchQueue.global(qos: .default)) As automatically goes to background thread, it can be deleted.
             .tryMap({ try handleURLResponse(output: $0, url: url) })
+            .retry(3) //retries 3 times if response fails
             .eraseToAnyPublisher()
     }
     
