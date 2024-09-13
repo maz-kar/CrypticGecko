@@ -25,6 +25,7 @@ struct CrypticGeckoApp: App {
                     HomeView()
                         .toolbar(.hidden)
                 }
+                .navigationViewStyle(StackNavigationViewStyle()) //fixes the iPad issue with detailsView
                 .environmentObject(vm)
                 
                 ZStack { //This ZStack is always on top of the NavigationStack
