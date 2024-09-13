@@ -12,12 +12,16 @@ struct SettingsView: View {
     
     let linkedInURL = URL(string: "https://www.linkedin.com/in/maz-kar-80555b148/")!
     let githubURL = URL(string: "https://github.com/maz-kar")!
+    let coinGeckoURL = URL(string: "https://www.coingecko.com")!
+    let defaultURL = URL(string: "https://www.google.com")!
     
     var body: some View {
         //As it will be a sheet and it will create a new environment, we will not be in our navigationView anymore, we need to add a new NavigationStack
         NavigationStack {
             List {
                 developerSection
+                coinGeckoSection
+                applicationSection
             }
             .tint(.blue)
             .font(.headline)
@@ -46,21 +50,57 @@ extension SettingsView {
                     .frame(width: 100, height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                 
-                Text("This app uses MVVM architecture, Combine and CoreData.")
+                Text("This app uses MVVM architecture, Combine and CoreData. It uses SwiftUI and is written 100% in Swift. The project benefits from multi-threading, publishers/subscribers and data persistance.")
                     .font(.callout)
                     .fontWeight(.medium)
                     .foregroundStyle(Color.theme.accent)
             }
             .padding(.vertical)
             
-            Link("LinkedIn 💻", destination: linkedInURL)
-            Link("Github 🧑🏻‍💻", destination: githubURL)
-
+            HStack {
+                Link("Visit LinkedIn 💻", destination: linkedInURL)
+                Spacer()
+                Link("Visit Github 🧑🏻‍💻", destination: githubURL)
+            }
+            
         } header: {
             Text("Developer")
         }
     }
     
+    private var coinGeckoSection: some View {
+        Section {
+            VStack(alignment: .leading) {
+                Image("coingecko")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 100)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                
+                Text("The cryptocurrency data that is used in this app comes from a free API from CoinGecko! Prices may be slightly delayed. ")
+                    .font(.callout)
+                    .fontWeight(.medium)
+                    .foregroundStyle(Color.theme.accent)
+            }
+            .padding(.vertical)
+            
+            Link("Visit CoinGecko 🦎", destination: coinGeckoURL)
+            
+        } header: {
+            Text("CoinGecko")
+        }
+    }
+    
+    private var applicationSection: some View {
+        Section {
+            Link("Terms of Service", destination: defaultURL)
+            Link("Privacy Policy", destination: defaultURL)
+            Link("Company Website", destination: defaultURL)
+            Link("Learn More", destination: defaultURL)
+        } header: {
+            Text("Application")
+        }
+    }
 }
 
 #Preview {
