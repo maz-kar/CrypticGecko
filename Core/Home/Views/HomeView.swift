@@ -30,10 +30,7 @@ struct HomeView: View {
                         PortfolioView()
                             .environment(vm)
                     })
-                    .sheet(isPresented: $showSettingsView, content: {
-                        SettingsView()
-                            .environment(vm)
-                    })
+
                 VStack {
                     homeHeader
                     
@@ -53,6 +50,9 @@ struct HomeView: View {
                     
                     Spacer(minLength: 0)
                 }
+                .sheet(isPresented: $showSettingsView, content: { //As we cant add sheet in the same hierarchy, we added the 2nd sheet here.
+                    SettingsView()
+                })
             }
         }
         .navigationDestination(isPresented: $showDetailView) { 
