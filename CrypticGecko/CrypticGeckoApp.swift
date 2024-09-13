@@ -19,11 +19,15 @@ struct CrypticGeckoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                HomeView()
-                    .toolbar(.hidden)
+            ZStack {
+                NavigationStack {
+                    HomeView()
+                        .toolbar(.hidden)
+                }
+                .environmentObject(vm)
+                //This view will be on top the the HomeView
+                LaunchView()
             }
-            .environmentObject(vm)
         }
     }
 }

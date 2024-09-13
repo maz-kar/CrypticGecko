@@ -12,6 +12,10 @@ struct LaunchView: View {
         ZStack {
             Color.launch.background
                 .ignoresSafeArea()
+            
+            Image("logo-transparent")
+                .resizable()
+                .frame(width: 100, height: 100)
         }
     }
 }
