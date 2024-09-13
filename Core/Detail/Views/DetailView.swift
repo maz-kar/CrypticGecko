@@ -59,6 +59,10 @@ struct DetailView: View {
                 }
             }
         }
+        .background(
+            Color.theme.background
+                .ignoresSafeArea()
+        )
     }
 }
 

@@ -112,6 +112,8 @@ extension HomeView {
                     .onTapGesture {
                         segue(coin: coin)
                     }
+                //To defuse the automatic default dark mode which is taking over our background color.
+                    .listRowBackground(Color.theme.background)
             }
         }
         .listStyle(.plain)
@@ -126,7 +128,7 @@ extension HomeView {
                     .onTapGesture {
                         segue(coin: coin)
                     }
-                
+                    .listRowBackground(Color.theme.background)
             }
         }
         .listStyle(.plain)

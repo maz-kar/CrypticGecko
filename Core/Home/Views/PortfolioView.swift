@@ -25,6 +25,11 @@ struct PortfolioView: View {
                         portfolioInputSection
                     }
                 }
+                //To defuse the automatic default dark mode which is taking over our background color.
+                .background {
+                    Color.theme.background
+                        .ignoresSafeArea()
+                }
             }
             //Good practice for navigation elements from Title to Item, dismiss etc.
             .navigationTitle("Edit Portfolio")

@@ -18,10 +18,20 @@ struct SettingsView: View {
     var body: some View {
         //As it will be a sheet and it will create a new environment, we will not be in our navigationView anymore, we need to add a new NavigationStack
         NavigationStack {
-            List {
-                developerSection
-                coinGeckoSection
-                applicationSection
+            ZStack {
+                //background
+                Color.theme.background
+                    .ignoresSafeArea()
+                
+                //content
+                List {
+                    developerSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                    coinGeckoSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                    applicationSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                }
             }
             .tint(.blue)
             .font(.headline)
