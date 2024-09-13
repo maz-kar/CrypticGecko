@@ -14,13 +14,13 @@ struct SearchBarView: View {
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
-                .foregroundStyle(searchText.isEmpty ? Color.theme.secondaryTextColor : Color.theme.accentColor)
+                .foregroundStyle(searchText.isEmpty ? Color.theme.secondaryText : Color.theme.accent)
             
             TextField("Search by name or symbol", text: $searchText)
-                .foregroundStyle(Color.theme.accentColor)
+                .foregroundStyle(Color.theme.accent)
                 .overlay(alignment: .trailing) {
                     Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(Color.theme.accentColor)
+                        .foregroundStyle(Color.theme.accent)
                         .opacity(searchText.isEmpty ? 0.0 : 1.0)
                         .onTapGesture {
                             //shared is the singleton instance of UIApplication
@@ -35,8 +35,8 @@ struct SearchBarView: View {
         .padding()
         .background {
             RoundedRectangle(cornerRadius: 25)
-                .foregroundColor(Color.theme.backgroundColor)
-                .shadow(color: Color.theme.accentColor.opacity(0.3),
+                .foregroundColor(Color.theme.background)
+                .shadow(color: Color.theme.accent.opacity(0.3),
                         radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 0, y: 0)
         }
         .padding()

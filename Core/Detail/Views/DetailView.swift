@@ -67,7 +67,7 @@ extension DetailView {
         HStack {
             Text(vm.coin.symbol.uppercased())
                 .font(.headline)
-                .foregroundStyle(Color.theme.secondaryTextColor)
+                .foregroundStyle(Color.theme.secondaryText)
             CoinImageView(coin: vm.coin)
                 .frame(width: 25, height: 25)
         }
@@ -76,7 +76,7 @@ extension DetailView {
     private var overviewTitle: some View {
         Text("Overview")
             .font(.title)
-            .foregroundStyle(Color.theme.accentColor)
+            .foregroundStyle(Color.theme.accent)
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -84,7 +84,7 @@ extension DetailView {
     private var additionalTitle: some View {
         Text("Additional Details")
             .font(.title)
-            .foregroundStyle(Color.theme.accentColor)
+            .foregroundStyle(Color.theme.accent)
             .bold()
             .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -121,7 +121,7 @@ extension DetailView {
                     Text(coinDescription)
                         .lineLimit(showFullDescription ? nil : 3)
                         .font(.callout)
-                        .foregroundStyle(Color.theme.secondaryTextColor)
+                        .foregroundStyle(Color.theme.secondaryText)
                     Button(action: {
                         withAnimation(.easeInOut) {
                             showFullDescription.toggle()

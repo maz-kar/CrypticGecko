@@ -17,13 +17,13 @@ struct CoinLogoView: View {
             
             Text(coin.symbol.uppercased())
                 .font(.headline)
-                .foregroundStyle(Color.theme.accentColor)
+                .foregroundStyle(Color.theme.accent)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
             
             Text(coin.name)
                 .font(.caption)
-                .foregroundStyle(Color.theme.secondaryTextColor)
+                .foregroundStyle(Color.theme.secondaryText)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
                 .multilineTextAlignment(.center)

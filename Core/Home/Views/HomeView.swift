@@ -19,7 +19,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.theme.backgroundColor
+                Color.theme.background
                     .ignoresSafeArea()
                     .sheet(isPresented: $showPortfolioView, content: {
                         /*
@@ -83,7 +83,7 @@ extension HomeView {
                 .animation(.none, value: showPortfolio)
                 .font(.headline)
                 .fontWeight(.heavy)
-                .foregroundStyle(Color.theme.accentColor)
+                .foregroundStyle(Color.theme.accent)
             Spacer()
             
             CircleButtonView(iconName: "chevron.right")
@@ -183,7 +183,7 @@ extension HomeView {
         }
         .padding(.horizontal)
         .font(.caption)
-        .foregroundStyle(Color.theme.secondaryTextColor)
+        .foregroundStyle(Color.theme.secondaryText)
     }
 }
 

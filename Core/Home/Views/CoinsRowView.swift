@@ -25,7 +25,7 @@ struct CoinsRowView: View {
         }
         .font(.subheadline)
         .background( //Good practice to make all of the row clickable.
-            Color.theme.backgroundColor
+            Color.theme.background
         )
     }
 }
@@ -36,7 +36,7 @@ extension CoinsRowView {
         HStack(spacing: 0) {
             Text("\(coin.rank)")
                 .font(.caption)
-                .foregroundStyle(Color.theme.secondaryTextColor)
+                .foregroundStyle(Color.theme.secondaryText)
                 .frame(minWidth: 30)
             
             CoinImageView(coin: coin)
@@ -45,7 +45,7 @@ extension CoinsRowView {
             Text("\(coin.symbol.uppercased())")
                 .font(.headline)
                 .padding(.leading, 6)
-                .foregroundStyle(Color.theme.accentColor)
+                .foregroundStyle(Color.theme.accent)
         }
     }
     
@@ -55,14 +55,14 @@ extension CoinsRowView {
                 .bold()
             Text("\((coin.currentHoldings ?? 0).asNumberString())")
         }
-        .foregroundStyle(Color.theme.accentColor)
+        .foregroundStyle(Color.theme.accent)
     }
     
     private var rightColumn: some View {
         VStack(alignment: .trailing) {
             Text(coin.currentPrice.asCurrencyWith6Decimals())
                 .bold()
-                .foregroundStyle(Color.theme.accentColor)
+                .foregroundStyle(Color.theme.accent)
             Text(coin.priceChangePercentage24H?.asPercentString() ?? "")
                 .foregroundStyle((coin.priceChangePercentage24H ?? 0 >= 0) ? Color.theme.green : Color.theme.red)
         }
