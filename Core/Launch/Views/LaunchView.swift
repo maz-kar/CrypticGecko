@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LaunchView: View {
-    @State private var loadingText: String = "Loading your portfolio..."
+    @State private var loadingText: [String] = "Loading your portfolio...".map({ String($0) }) //maps a single String to an array of Strings
     @State private var showLaunchView: Bool = false
     
     var body: some View {
@@ -22,11 +22,15 @@ struct LaunchView: View {
             
             ZStack {
                 if showLaunchView {
-                    Text(loadingText)
-                        .font(.headline)
-                        .fontWeight(.heavy)
-                        .foregroundStyle(Color.launch.accent)
-                        .transition(AnyTransition.scale.animation(.easeIn))
+                    HStack(spacing: 0) {
+                        ForEach(loadingText.indices) { index in
+                            Text(loadingText[index])
+                                .font(.headline)
+                                .fontWeight(.heavy)
+                                .foregroundStyle(Color.launch.accent)
+                        }
+                    }
+                    .transition(AnyTransition.scale.animation(.easeIn))
                 }
             }
             .offset(y: 70)
