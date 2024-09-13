@@ -11,6 +11,7 @@ import SwiftUI
 struct CrypticGeckoApp: App {
     
     @StateObject private var vm = HomeViewModel()
+    @State private var showLaunchView: Bool = true
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.theme.accent)]
@@ -25,8 +26,14 @@ struct CrypticGeckoApp: App {
                         .toolbar(.hidden)
                 }
                 .environmentObject(vm)
-                //This view will be on top the the HomeView
-                LaunchView()
+                
+                ZStack { //This ZStack is always on top of the NavigationStack
+                    if showLaunchView {
+                        LaunchView(showLaunchView: $showLaunchView)
+                            .transition(.move(edge: .leading)) //When we want to hide the launchScreen we do a transition to left, instead of going and hide behind the navigation
+                    }
+                }
+                .zIndex(2.0)
             }
         }
     }

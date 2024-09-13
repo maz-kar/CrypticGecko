@@ -9,8 +9,11 @@ import SwiftUI
 
 struct LaunchView: View {
     @State private var loadingText: [String] = "Loading your portfolio...".map({ String($0) }) //maps a single String to an array of Strings
-    @State private var showLaunchView: Bool = false
+    @State private var showLoadingText: Bool = false
     @State private var counter: Int = 0 //Every time that counter updates, SwiftUI will rerun the whole view, including the ForEach
+    @State private var loops: Int = 0
+    
+    @Binding var showLaunchView: Bool
     
     private let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
@@ -24,7 +27,7 @@ struct LaunchView: View {
                 .frame(width: 100, height: 100)
             
             ZStack {
-                if showLaunchView {
+                if showLoadingText {
                     HStack(spacing: 0) {
                         ForEach(loadingText.indices) { index in
                             Text(loadingText[index])
@@ -40,13 +43,18 @@ struct LaunchView: View {
             .offset(y: 70)
         }
         .onAppear {
-            showLaunchView.toggle()
+            showLoadingText.toggle()
         }
+        //Here we receive the value of the timer publisher
         .onReceive(timer, perform: { _ in //every 0.1 sec the timer will be executed and this closure will run
             withAnimation(.spring) {
                 let lastIndex = loadingText.count - 1
                 if counter == lastIndex { //when we reach to last index, reset the counter
                     counter = 0
+                    loops += 1
+                    if loops >= 2 {
+                        showLaunchView = false
+                    }
                 } else {
                     counter += 1
                 }
@@ -56,5 +64,5 @@ struct LaunchView: View {
 }
 
 #Preview {
-    LaunchView()
+    LaunchView(showLaunchView: .constant(true))
 }
