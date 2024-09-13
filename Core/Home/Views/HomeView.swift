@@ -30,7 +30,7 @@ struct HomeView: View {
                         PortfolioView()
                             .environment(vm)
                     })
-
+                
                 VStack {
                     homeHeader
                     
@@ -43,11 +43,18 @@ struct HomeView: View {
                     if !showPortfolio {
                         allCoinsList
                             .transition(.move(edge: .leading))
-                    } else {
-                        portfolioCoinsList
-                            .transition(.move(edge: .trailing))
                     }
-                    
+                    if showPortfolio {
+                        ZStack(alignment: .top) {
+                            if vm.searchText.isEmpty && vm.portfolioCoins.isEmpty {
+                                portfolioEmptyText
+                            }
+                            else {
+                                portfolioCoinsList
+                            }
+                        }
+                        .transition(.move(edge: .trailing))
+                    }
                     Spacer(minLength: 0)
                 }
                 .sheet(isPresented: $showSettingsView, content: { //As we cant add sheet in the same hierarchy, we added the 2nd sheet here.
@@ -55,7 +62,7 @@ struct HomeView: View {
                 })
             }
         }
-        .navigationDestination(isPresented: $showDetailView) { 
+        .navigationDestination(isPresented: $showDetailView) {
             //Great practice for segue to another view.Recipe:use 2 @State var,use a navigationDestination which will be activated when we update those two @State vars.
             DetailLoadingView(coin: $selectedCoin)
         }
@@ -184,6 +191,15 @@ extension HomeView {
         .padding(.horizontal)
         .font(.caption)
         .foregroundStyle(Color.theme.secondaryText)
+    }
+    
+    private var portfolioEmptyText: some View {
+        Text("You have not added any coin to your portfolio yet. Click the + button of top left to get started! ")
+            .font(.callout)
+            .foregroundStyle(Color.theme.accent)
+            .fontWeight(.medium)
+            .multilineTextAlignment(.center)
+            .padding(50)
     }
 }
 
