@@ -116,9 +116,6 @@ We also need to change the color of the line dynamically green (+) or red (-). F
 Add UnitTests for all the VMs after finishing the app.
 Add UITests for all the Views
 
-On 12.09: 
-- Continue with Line Chart #21
-
 
 
 

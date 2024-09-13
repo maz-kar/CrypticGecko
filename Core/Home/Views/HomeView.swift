@@ -11,6 +11,7 @@ struct HomeView: View {
     @EnvironmentObject private var vm: HomeViewModel
     @State private var showPortfolio: Bool = false
     @State private var showPortfolioView: Bool = false
+    @State private var showSettingsView: Bool = false
     
     @State private var selectedCoin: CoinModel? = nil //To catch the coin tapped coin
     @State private var showDetailView: Bool = false //if true, navigate to destination DetailView
@@ -27,6 +28,10 @@ struct HomeView: View {
                          If we want the environment object in our portfolio, we need to add it manually to environment of the PortfolioView
                          */
                         PortfolioView()
+                            .environment(vm)
+                    })
+                    .sheet(isPresented: $showSettingsView, content: {
+                        SettingsView()
                             .environment(vm)
                     })
                 VStack {
@@ -64,6 +69,8 @@ extension HomeView {
                 .onTapGesture {
                     if showPortfolio {
                         showPortfolioView.toggle()
+                    } else {
+                        showSettingsView.toggle()
                     }
                 }
                 .animation(.none, value: showPortfolio)
